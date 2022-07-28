@@ -5,6 +5,9 @@ function createTableFromRecipes(recipes,itemmap){
 	var tax = 0.09
 	if($("#prem").is(":checked"))
 		tax = tax / 2
+	var quality = $("#quality").val()
+	if(isNaN(quality))
+		quality = 1
 	$("#tablearea").empty().append("<table>")
 	$("#tablearea > table").append("<tr><th>En</th><th>Product</th><th class=\"nut\">Nutri</th><th>#</th><th style=\"width:5%\">Price</th><th>Profit</th><th>Material</th><th>#</th><th class=\"cost\" style=\"width:3%\">Cost</tr>")
 	var string = ""
@@ -13,10 +16,10 @@ function createTableFromRecipes(recipes,itemmap){
 			+"</td><td>"+ITEM_NAMES.get(recipes[i].result)+"</td><td class=\"nut\">"
 			+recipes[i].nutrition+"</td><td>"
 			+ recipes[i].quantity+"</td><td><input type=\"number\" class=\"price\" style=\"width:80%\" min=0 value="
-			+itemmap.getPrice(recipes[i].result,city)+"></td><td class=\"profit\">"
-			+Math.trunc(recipes[i].calcProfit(itemmap,city,rrr,nutri,tax))+"</td>"
+			+itemmap.getPrice(recipes[i].result,quality,city)+"></td><td class=\"profit\">"
+			+Math.trunc(recipes[i].calcProfit(itemmap,quality,city,rrr,nutri,tax))+"</td>"
 			for (var key of recipes[i].ingredients.keys())
-			string = string + "<td>"+ITEM_NAMES.get(key)+"</td><td>"+recipes[i].ingredients.get(key)+"</td><td><input type=\"number\" class=\"cost\" min=0 size=\"8\" value="+itemmap.getPrice(key,city)+">"
+			string = string + "<td>"+ITEM_NAMES.get(key)+"</td><td>"+recipes[i].ingredients.get(key)+"</td><td><input type=\"number\" class=\"cost\" min=0 size=\"8\" value="+itemmap.getPrice(key,1,city)+">"
 			string = string + "</tr>"
 	}
 	$("#tablearea > table")
@@ -24,7 +27,8 @@ function createTableFromRecipes(recipes,itemmap){
 }
 
 function createNavBar(){
-	htmlstuff = "<ul><li><a href=\"cooking.html\">CHEF</a></li>"
+	htmlstuff = "<ul><li><a href=\"index.html\">HOME</a></li>"
+			   +"<ul><li><a href=\"cooking.html\">CHEF</a></li>"
 			   +"<ul><li><a href=\"alchemy.html\">ALCHEMIST</a></li>"
 			   +"</ul><br>"
 	$("#navbararea").append(htmlstuff)
