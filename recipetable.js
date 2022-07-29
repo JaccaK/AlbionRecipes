@@ -30,7 +30,6 @@ function createNavBar(){
 	htmlstuff = "<ul><li><a href=\"index.html\">HOME</a></li>"
 			   +"<ul><li><a href=\"cooking.html\">CHEF</a></li>"
 			   +"<ul><li><a href=\"alchemy.html\">ALCHEMIST</a></li>"
-			   +"<ul><li><a href=\"saddler.html\">SADDLER</a></li>"
 			   +"</ul><br>"
 	$("#navbararea").append(htmlstuff)
 }
@@ -78,6 +77,32 @@ async function updateProfit(){
 	changeProfitColor()
 }
 $("*").change(function() { updateProfit() })
+
+async function updateProfitNoCow(){
+	var city = $("#locations").val()
+	var rrr = $("#rrr").val()
+	var nutri = $("#nutri").val()
+	var tax = 0.09
+	if($("#prem").is(":checked"))
+		tax = tax / 2
+	$(".profit").each(function () {
+		var price = $(this).parent().children().children(".price").val()
+		var quantity = $(this).parent().children().children(".price").parent().prev().text()
+		var nutricost = $(this).parent().children().children(".price").parent().prev().prev().text()
+		nutricost = nutricost * nutri
+		price = price * quantity
+		var cost = 0
+		$(this).parent().children().children(".cost").each(function (){
+			quantity = $(this).parent().prev().text()
+			cost = cost + $(this).val() * quantity
+		})
+		var removeCow = $(this).parent().children().children(".cost").first().val() * rrr
+		console.log(removeCow)
+		var profit = price * (1 - tax) - cost * (1 - rrr) - nutricost - removeCow
+		$(this).parent().children(".profit").text(Math.trunc(profit))
+	})
+	changeProfitColor()
+}
 
 
 function getEnchantFromName(enchant){

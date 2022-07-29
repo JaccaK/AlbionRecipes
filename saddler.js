@@ -49,9 +49,11 @@ var products = "T3_MOUNT_HORSE,T4_MOUNT_HORSE,T5_MOUNT_HORSE,T6_MOUNT_HORSE,T7_M
 
     async function updateTable(){
       itemmap.clearMap() //Must be used if working with quality.
-      updateItemMap(itemmap,products).then(x => updateItemMap(itemmap, materials)).then(x => createTableFromRecipes(recipes, itemmap)).then( x => changeProfitColor() ).then(x => bindSelectRow())
+      updateItemMap(itemmap,products).then(x => updateItemMap(itemmap, materials)).then(x => createTableFromRecipes(recipes, itemmap)).then(x => updateProfitNoCow()).then( x => changeProfitColor() ).then(x => bindSelectRow())
     }
     $(document).ready(function(){
       createNavBar()
       updateTable()
+    $("*").off("change")
+    $("*").change(function () { updateProfitNoCow() })
     })
