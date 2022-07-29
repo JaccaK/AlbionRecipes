@@ -30,6 +30,7 @@ function createNavBar(){
 	htmlstuff = "<ul><li><a href=\"index.html\">HOME</a></li>"
 			   +"<ul><li><a href=\"cooking.html\">CHEF</a></li>"
 			   +"<ul><li><a href=\"alchemy.html\">ALCHEMIST</a></li>"
+			   +"<ul><li><a href=\"saddler.html\">SADDLER</a></li>"
 			   +"</ul><br>"
 	$("#navbararea").append(htmlstuff)
 }
