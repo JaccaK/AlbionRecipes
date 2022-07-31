@@ -33,10 +33,21 @@ function createNavBar(){
 			   +"<ul><li><a href=\"cooking.html\">CHEF</a></li>"
 			   +"<ul><li><a href=\"alchemy.html\">ALCHEMIST</a></li>"
 			   +"<ul><li><a href=\"saddler.html\">SADDLER</a></li>"
+			   +"<ul><li><a href=\"toolmaker.html\">TOOLMAKER</a></li>"
 			   +"</ul><br>"
 	$("#navbararea").append(htmlstuff)
 }
 
+function updateButtonTextUpdating(){
+	$("#updateButton").text("Updating . . .")
+    $("#updateButton").prop( "disabled", true );
+    $("#tablearea").empty();
+}
+
+function updateButtonTextUpdated(){
+	$("#updateButton").text("Update")
+	$("#updateButton").prop( "disabled", false )
+}
 
 function changeProfitColor() {
     $(".profit").each( function() {

@@ -48,10 +48,27 @@ var products = "T3_MOUNT_HORSE,T4_MOUNT_HORSE,T5_MOUNT_HORSE,T6_MOUNT_HORSE,T7_M
     var itemmap = new Item_Map()
 
     async function updateTable(){
+      //Theatrics
+      $("#updateButton").text("Updating . . .")
+      $("#updateButton").prop( "disabled", true );
+      $("#tablearea").empty();
+
       itemmap.clearMap() //Must be used if working with quality.
-      updateItemMap(itemmap,products).then(x => updateItemMap(itemmap, materials)).then(x => createTableFromRecipes(recipes, itemmap)).then(x => updateProfit()).then( x => changeProfitColor() ).then(x => bindSelectRow())
+      updateItemMap(itemmap,products).then(x => updateItemMap(itemmap, materials)).then(x => updateTableValues()).then(x => {$("#updateButton").text("Update"); $("#updateButton").prop( "disabled", false )})
     }
+
+    function updateTableValues(){
+      createTableFromRecipes(recipes, itemmap)
+      updateProfit()
+      changeProfitColor()
+      bindSelectRow()
+    }
+
     $(document).ready(function(){
       createNavBar()
       updateTable()
+      $("#quality").change(function () {
+        updateTableValues()
+      })
+      $("#locations").change(function () { updateTable() })
     })
