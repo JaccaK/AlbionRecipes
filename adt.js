@@ -42,11 +42,12 @@ class Item_Map {
 }
 
 class Recipe {
-	constructor(resultId, ingredientMap, nutrition, quantity){
+	constructor(resultId, ingredientMap, exludeFromRRR, nutrition, quantity){
 		this.result = resultId
 		this.ingredients = ingredientMap
 		this.nutrition = nutrition
 		this.quantity = quantity
+		this.exlude = exludeFromRRR
 	}
 
 	calcProfit(itemmap, quality, city, rrr, nutritioncost, tax){
@@ -57,9 +58,18 @@ class Recipe {
 	calcCost(itemmap, city, rrr, nutritioncost){
 		var investment = 0
 		for (var key of this.ingredients.keys()){
-			investment = investment + this.ingredients.get(key) * itemmap.getPrice(key, 1, city)
+			if (!this.isExcluded(key)) {
+				investment = investment + (this.ingredients.get(key) * itemmap.getPrice(key, 1, city)) * (1 - rrr)
+			}
+			else {
+				investment = investment + this.ingredients.get(key) * itemmap.getPrice(key, 1, city)
+			}
 		}
-		return investment * (1 - rrr) + this.nutrition * nutritioncost
+		return investment + this.nutrition * nutritioncost
+	}
+
+	isExcluded(itemname){
+		return this.exlude.includes(itemname)
 	}
 
 }

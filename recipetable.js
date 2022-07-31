@@ -18,8 +18,10 @@ function createTableFromRecipes(recipes,itemmap){
 			+ recipes[i].quantity+"</td><td><input type=\"number\" class=\"price\" style=\"width:80%\" min=0 value="
 			+itemmap.getPrice(recipes[i].result,quality,city)+"></td><td class=\"profit\">"
 			+Math.trunc(recipes[i].calcProfit(itemmap,quality,city,rrr,nutri,tax))+"</td>"
-			for (var key of recipes[i].ingredients.keys())
-			string = string + "<td>"+ITEM_NAMES.get(key)+"</td><td>"+recipes[i].ingredients.get(key)+"</td><td><input type=\"number\" class=\"cost\" min=0 size=\"8\" value="+itemmap.getPrice(key,1,city)+">"
+			for (var key of recipes[i].ingredients.keys()){
+				string = string + "<td>"+ITEM_NAMES.get(key)+"</td><td>"+recipes[i].ingredients.get(key)+"</td><td><input type=\"number\" class=\"cost\" min=0 size=\"8\" value="+itemmap.getPrice(key,1,city)+">"
+				+"<td class=\"exclude\">"+recipes[i].isExcluded(key)+"</td>"
+			}
 			string = string + "</tr>"
 	}
 	$("#tablearea > table")
@@ -30,6 +32,7 @@ function createNavBar(){
 	htmlstuff = "<ul><li><a href=\"index.html\">HOME</a></li>"
 			   +"<ul><li><a href=\"cooking.html\">CHEF</a></li>"
 			   +"<ul><li><a href=\"alchemy.html\">ALCHEMIST</a></li>"
+			   +"<ul><li><a href=\"saddler.html\">SADDLER</a></li>"
 			   +"</ul><br>"
 	$("#navbararea").append(htmlstuff)
 }
@@ -69,16 +72,22 @@ async function updateProfit(){
 		var cost = 0
 		$(this).parent().children().children(".cost").each(function (){
 			quantity = $(this).parent().prev().text()
-			cost = cost + $(this).val() * quantity
+			exluded = $(this).parent().next().text()
+			if(exluded == "false"){
+				cost = cost + $(this).val() * quantity * (1 - rrr)
+			} else {
+				cost = cost + $(this).val() * quantity
+			}
 		})
-		var profit = price * (1 - tax) - cost * (1 - rrr) - nutricost
+		var profit = price * (1 - tax) - cost - nutricost
 		$(this).parent().children(".profit").text(Math.trunc(profit))
 	})
 	changeProfitColor()
 }
 $("*").change(function() { updateProfit() })
 
-async function updateProfitNoCow(){
+
+async function updateProfitProductYield(){
 	var city = $("#locations").val()
 	var rrr = $("#rrr").val()
 	var nutri = $("#nutri").val()
@@ -96,9 +105,7 @@ async function updateProfitNoCow(){
 			quantity = $(this).parent().prev().text()
 			cost = cost + $(this).val() * quantity
 		})
-		var removeCow = $(this).parent().children().children(".cost").first().val() * rrr
-		console.log(removeCow)
-		var profit = price * (1 - tax) - cost * (1 - rrr) - nutricost - removeCow
+		var profit = price * (1 - tax) * (1 + rrr) - cost  - nutricost
 		$(this).parent().children(".profit").text(Math.trunc(profit))
 	})
 	changeProfitColor()
