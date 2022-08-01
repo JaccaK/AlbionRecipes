@@ -441,7 +441,7 @@ var other = "T2_BAG,T3_BAG,T4_BAG,T4_BAG@1,T4_BAG@2,T4_BAG@3,T5_BAG,T5_BAG@1,T5_
                   new Recipe("T8_SHOES_GATHERER_FISH", new Map([["T8_LEATHER",8]]),[], 2.304, 1),
                   new Recipe("T8_SHOES_GATHERER_FISH@1", new Map([["T8_LEATHER_LEVEL1@1",8]]),[], 4.608, 1),
                   new Recipe("T8_SHOES_GATHERER_FISH@2", new Map([["T8_LEATHER_LEVEL2@2",8]]),[], 9.216, 1),
-                  new Recipe("T8_SHOES_GATHERER_FISH@3", new Map([["T8_LEATHER_LEVEL3@3",8]]),[], 18.432, 1),
+                  new Recipe("T8_SHOES_GATHERER_FISH@3", new Map([["T8_LEATHER_LEVEL3@3",8]]),[], 18.432, 1)
     ]
 
     var otherRecipes = [
@@ -464,6 +464,7 @@ var other = "T2_BAG,T3_BAG,T4_BAG,T4_BAG@1,T4_BAG@2,T4_BAG@3,T5_BAG,T5_BAG@1,T5_
       createTableFromRecipes(recipes[$("#category").val()], itemmap)
       updateProfit()
       changeProfitColor()
+      showOnlyEnchant($("#enchantLevel").val())
       bindSelectRow()
     }
 
@@ -473,5 +474,6 @@ var other = "T2_BAG,T3_BAG,T4_BAG,T4_BAG@1,T4_BAG@2,T4_BAG@3,T5_BAG,T5_BAG@1,T5_
       updateTable()
       $("#category").change(function() { updateTableValues() })
       $("#quality").change(function() { updateTableValues() })
+      $("#enchantLevel").change(function() { updateTableValues() })
       $("#locations").change(function() { updateTable() })
     })

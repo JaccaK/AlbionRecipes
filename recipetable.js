@@ -9,7 +9,7 @@ function createTableFromRecipes(recipes,itemmap){
 	if(isNaN(quality))
 		quality = 1
 	$("#tablearea").empty().append("<table>")
-	$("#tablearea > table").append("<tr><th>En</th><th>Product</th><th class=\"nut\">Nutri</th><th>#</th><th style=\"width:5%\">Price</th><th>Profit</th><th>Material</th><th>#</th><th class=\"cost\" style=\"width:3%\">Cost</tr>")
+	$("#tablearea > table").append("<tr><th class=\"enchant\">En</th><th>Product</th><th class=\"nut\">Nutri</th><th>#</th><th style=\"width:5%\">Price</th><th>Profit</th><th>Material</th><th>#</th><th class=\"cost\" style=\"width:3%\">Cost</tr>")
 	var string = ""
 	for (let i = 0; i < recipes.length; i++) {
 			string = string + "<tr><td class=\"enchant\">"+getEnchantFromName(recipes[i].result)
@@ -65,6 +65,13 @@ function hideUnprofitable() {
     if (!isNaN(profit) && profit < 1) 
         $(this).parent().remove()
     })
+}
+
+function showOnlyEnchant(enchantlevel) {
+	$(".enchant").each( function () {
+		if (!$(this).html().includes("En") && ($(this).text() != enchantlevel))
+			$(this).parent().remove()
+	})
 }
 
 async function updateProfit(){
