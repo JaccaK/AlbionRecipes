@@ -2,9 +2,9 @@ function createTableFromRecipes(recipes,itemmap){
 	var city = $("#locations").val()
 	var rrr = $("#rrr").val()
 	var nutri = $("#nutri").val()
-	var tax = 0.09
+	var tax = 0.075 //6% tax + 1.5% setup fee
 	if($("#prem").is(":checked"))
-		tax = tax / 2
+		tax = 0.045 //3% tax + 1.5% setup fee
 	var quality = $("#quality").val()
 	if(isNaN(quality))
 		quality = 1
