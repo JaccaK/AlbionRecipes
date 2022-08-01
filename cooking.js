@@ -108,10 +108,18 @@
     var itemmap = new Item_Map()
     async function updateTable(){
       updateButtonTextUpdating()
-      updateItemMap(itemmap,materials).then(x => updateItemMap(itemmap, products)).then(x => createTableFromRecipes(recipes, itemmap)).then( x => changeProfitColor() ).then(x => bindSelectRow()).then(x => updateButtonTextUpdated())
+      updateItemMap(itemmap,materials).then(x => updateItemMap(itemmap, products)).then(x => updateTableValues()).then(x => updateButtonTextUpdated())
     }
+
+    function updateTableValues(){
+      createTableFromRecipes(recipes, itemmap)
+      updateProfit()
+      changeProfitColor()
+      bindSelectRow()
+    }
+    
     $(document).ready(function(){
       createNavBar()
       updateTable()
-      $("#locations").change(function() {updateTable()})
+      $("#locations").change(function() {updateTableValues()})
     })

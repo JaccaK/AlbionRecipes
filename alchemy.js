@@ -37,8 +37,16 @@
       updateButtonTextUpdating()
       updateItemMap(itemmap,materials).then(x => updateItemMap(itemmap, products)).then(x => createTableFromRecipes(recipes, itemmap)).then( x => changeProfitColor() ).then(x => bindSelectRow()).then(x => updateButtonTextUpdated())
     }
+
+    function updateTableValues(){
+      createTableFromRecipes(recipes, itemmap)
+      updateProfit()
+      changeProfitColor()
+      bindSelectRow()
+    }
+    
     $(document).ready(function(){
       createNavBar()
       updateTable()
-      $("#locations").change(function(){updateTable()})
+      $("#locations").change(function(){updateTableValues()})
     })

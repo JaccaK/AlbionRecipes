@@ -70,5 +70,5 @@ var products = "T3_MOUNT_HORSE,T4_MOUNT_HORSE,T5_MOUNT_HORSE,T6_MOUNT_HORSE,T7_M
       $("#quality").change(function () {
         updateTableValues()
       })
-      $("#locations").change(function () { updateTable() })
+      $("#locations").change(function () { updateTableValues() })
     })
