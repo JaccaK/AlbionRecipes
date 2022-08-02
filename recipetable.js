@@ -144,3 +144,9 @@ async function bindSelectRow(){
       $(this).addClass("selectedRow")
     })
 }
+
+function appendItems(itemarray) { //Limit total item list to around 8000 characters.
+    string = ""
+    itemarray.forEach(item => string = string+item+",")
+    return string
+}

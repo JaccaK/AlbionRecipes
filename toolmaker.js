@@ -654,11 +654,12 @@ var other = "T2_BAG,T3_BAG,T4_BAG,T4_BAG@1,T4_BAG@2,T4_BAG@3,T5_BAG,T5_BAG@1,T5_
 
     var itemmap = new Item_Map()
 
+
+
     async function updateTable(){
       updateButtonTextUpdating()
       itemmap.clearMap()
-      updateItemMap(itemmap,other).then(x => updateItemMap(itemmap, materials)).then(x => updateItemMap(itemmap, tools)).then(x => updateItemMap(itemmap, fiber)).then(x => updateItemMap(itemmap, hide))
-      .then(x => updateItemMap(itemmap, ore)).then(x => updateItemMap(itemmap, rock)).then(x => updateItemMap(itemmap, wood)).then(x => updateItemMap(itemmap, fish))
+      updateItemMap(itemmap,appendItems([materials,tools,fiber,hide])).then(x => updateItemMap(itemmap, appendItems([ore,rock,wood,fish]))).then(x => updateItemMap(itemmap, other))
       .then(x => updateTableValues()).then(x => updateButtonTextUpdated())
     }
 
@@ -669,6 +670,8 @@ var other = "T2_BAG,T3_BAG,T4_BAG,T4_BAG@1,T4_BAG@2,T4_BAG@3,T5_BAG,T5_BAG@1,T5_
       showOnlyEnchant($("#enchantLevel").val())
       bindSelectRow()
     }
+
+    
 
 
     $(document).ready(function(){
