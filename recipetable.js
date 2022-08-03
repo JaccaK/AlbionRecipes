@@ -35,6 +35,7 @@ function createNavBar(){
 			   +"<ul><li><a href=\"saddler.html\">SADDLER</a></li>"
 			   +"<ul><li><a href=\"toolmaker.html\">TOOLMAKER</a></li>"
 			   +"<ul><li><a href=\"magestower.html\">MAGE'S TOWER</a></li>"
+			   +"<ul><li><a href=\"hunterslodge.html\">HUNTER'S LODGE</a></li>"
 			   +"</ul><br>"
 	$("#navbararea").append(htmlstuff)
 }

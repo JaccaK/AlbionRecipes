@@ -85,3 +85,7 @@ async function updateItemMap(itemmap, itemstring){
 	var response = await $.getJSON(url)
 	response.forEach(item => itemmap.addItem(item))
 }
+
+function convertNut(itemvalue) {
+	return itemvalue/20/44.44
+}
