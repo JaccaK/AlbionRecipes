@@ -1,0 +1,76 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Warrior's Forge</title>
+  <meta name="description" content="A Warrior's Forge calculator for the game Albion Online. Automatically calculates profit using prices from The Albion Online Data Project and user input.">
+  <meta name="author" content="JaccaKnoff">
+
+  <meta property="og:title" content="Albion Online Warrior's Forge Calculator">
+  <meta property="og:type" content="website">
+  <meta property="og:description" content="A Warrior's Forge calculator for the game Albion Online. Automatically calculates profit using prices from The Albion Online Data Project and user input.">
+
+  <link rel="icon" href="/favicon.ico">
+
+  <link rel="stylesheet" href="table.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="recipetable.js"></script>
+  <script src="names.js"></script>
+  <script src="adt.js"></script>
+  <script src="warriorsforge.js"></script>
+</head>
+<body>
+  <style type="text/css">.enchant{display: none;}</style>
+  <div id="navbararea"></div><br>
+  <h2>Warrior's Forge</h2>
+  <label for="category">Category</label>
+  <select name="category" id="category">
+    <option value="0">Plate Helmet</option>
+    <option value="1">Plate Armor</option>
+    <option value="2">Plate Shoes</option>
+    <option value="3">Shield</option>
+    <option value="4">Sword</option>
+    <option value="5">Axe</option>
+    <option value="6">Mace</option>
+    <option value="7">War Gloves</option>
+    <option value="8">Crossbow</option>
+    <option value="9">Hammer</option>
+  </select>
+  <label for="enchantLevel">Enchantment</label>
+  <select name="enchantLevel" id="enchantLevel">
+    <option value="0">0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+  </select><br>
+  <label for="locations">City</label>
+  <select name="locations" id="locations">
+    <option value="Thetford">Thetford</option>
+    <option value="Martlock">Martlock</option>
+    <option value="Fort Sterling">Fort Sterling</option>
+    <option value="Bridgewatch">Bridgewatch</option>
+    <option value="Lymhurst">Lymhurst</option>
+    <option value="Caerleon">Caerleon</option>
+  </select>
+  <label for="quality">Quality</label>
+  <select name="quality" id="quality">
+    <option value="1">Normal</option>
+    <option value="2">Good</option>
+    <option value="3">Outstanding</option>
+    <option value="4">Excellent</option>
+    <option value="5">Masterpiece</option>
+  </select>
+  <label for="rrr">Return Rate</label>
+  <input type="number" step="0.001" name="rrr" id="rrr" min=0 max=1 value="0.152">
+  <label for="nutri">Nutrition Cost</label>
+  <input type="number"  name="nutri" id="nutri" min=0 max=9999 value="500">
+  <label for="prem">Premium</label>
+  <input type="checkbox" name="prem" id="prem" checked>
+  <button id="updateButton" onclick="updateTable()">Update</button>
+  <button onclick="hideUnprofitable()">Hide Unprofitable</button>
+  <div id="tablearea" style="overflow:auto;"></div>
+</body>
+</html>
