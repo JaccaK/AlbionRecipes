@@ -1410,7 +1410,7 @@ var offhand = "T4_OFF_SHIELD,T4_OFF_SHIELD@1,T4_OFF_SHIELD@2,T4_OFF_SHIELD@3,T5_
     }
 
     async function updateTableValues(){
-      createTableFromRecipes(recipes[$("#category").val()], itemmap)
+      createTableFromRecipesDifferentEnd(recipes[$("#category").val()], itemmap)
       updateProfit()
       changeProfitColor()
       showOnlyEnchant($("#enchantLevel").val())
@@ -1424,4 +1424,5 @@ var offhand = "T4_OFF_SHIELD,T4_OFF_SHIELD@1,T4_OFF_SHIELD@2,T4_OFF_SHIELD@3,T5_
       $("#quality").change(function() { updateTableValues() })
       $("#enchantLevel").change(function() { updateTableValues() })
       $("#locations").change(function() { updateTableValues() })
+      $("#endLocations").change(function() { updateTableValues() })
     })

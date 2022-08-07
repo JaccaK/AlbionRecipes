@@ -1266,7 +1266,7 @@ var offhand = "T3_OFF_TORCH,T4_OFF_TORCH,T4_OFF_TORCH@1,T4_OFF_TORCH@2,T4_OFF_TO
     }
 
     async function updateTableValues(){
-      createTableFromRecipes(recipes[$("#category").val()], itemmap)
+      createTableFromRecipesDifferentEnd(recipes[$("#category").val()], itemmap)
       updateProfit()
       changeProfitColor()
       showOnlyEnchant($("#enchantLevel").val())
@@ -1280,4 +1280,5 @@ var offhand = "T3_OFF_TORCH,T4_OFF_TORCH,T4_OFF_TORCH@1,T4_OFF_TORCH@2,T4_OFF_TO
       $("#quality").change(function() { updateTableValues() })
       $("#enchantLevel").change(function() { updateTableValues() })
       $("#locations").change(function() { updateTableValues() })
+      $("#endLocations").change(function() { updateTableValues() })
     })

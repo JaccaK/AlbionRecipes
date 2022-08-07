@@ -28,8 +28,10 @@ class Item_Map {
 		if(!this.map.has(entry.item_id)) {
 			this.map.set(entry.item_id, new Item(entry))
 		} else {
-			this.map.get(entry.item_id).addPrice(entry.city, entry.quality, entry.sell_price_min, entry.sell_price_max_date)
+			this.map.get(entry.item_id).addPrice(entry.city, entry.quality, entry.sell_price_min, entry.sell_price_min_date)
 		}
+		if(entry.city == "Black Market")
+			this.map.get(entry.item_id).addPrice("Black Market Buy", entry.quality, entry.buy_price_max, entry.buy_price_max_date)
 	}
 
 	getPrice(id, quality, city) {
@@ -72,12 +74,6 @@ class Recipe {
 		return this.exlude.includes(itemname)
 	}
 
-}
-
-async function updateBlackMarketBuyMap(itemmap,itemstring) {
-	var url = "https://www.albion-online-data.com/api/v2/stats/prices/" + itemstring + ".json?locations=Black Market"
-	var response = await $.getJSON(url)
-	response.forEach(entry => itemmap.set(entry.item_id, entry.buy_price_max))
 }
 
 async function updateItemMap(itemmap, itemstring){

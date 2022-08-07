@@ -1269,7 +1269,7 @@ var tomestaff3 = appendItems([staff3,tome])
     }
 
     async function updateTableValues(){
-      createTableFromRecipes(recipes[$("#category").val()], itemmap)
+      createTableFromRecipesDifferentEnd(recipes[$("#category").val()], itemmap)
       updateProfit()
       changeProfitColor()
       showOnlyEnchant($("#enchantLevel").val())
@@ -1283,4 +1283,5 @@ var tomestaff3 = appendItems([staff3,tome])
       $("#quality").change(function() { updateTableValues() })
       $("#enchantLevel").change(function() { updateTableValues() })
       $("#locations").change(function() { updateTableValues() })
+      $("#endLocations").change(function() { updateTableValues() })
     })
