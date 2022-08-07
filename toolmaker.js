@@ -664,7 +664,7 @@ var other = "T2_BAG,T3_BAG,T4_BAG,T4_BAG@1,T4_BAG@2,T4_BAG@3,T5_BAG,T5_BAG@1,T5_
     }
 
     async function updateTableValues(){
-      createTableFromRecipes(recipes[$("#category").val()], itemmap)
+      createTableFromRecipesDifferentEnd(recipes[$("#category").val()], itemmap)
       updateProfit()
       changeProfitColor()
       showOnlyEnchant($("#enchantLevel").val())
@@ -681,4 +681,5 @@ var other = "T2_BAG,T3_BAG,T4_BAG,T4_BAG@1,T4_BAG@2,T4_BAG@3,T5_BAG,T5_BAG@1,T5_
       $("#quality").change(function() { updateTableValues() })
       $("#enchantLevel").change(function() { updateTableValues() })
       $("#locations").change(function() { updateTableValues() })
+      $("#endLocations").change(function() { updateTableValues() })
     })
