@@ -112,7 +112,7 @@
     }
 
     function updateTableValues(){
-      createTableFromRecipes(recipes, itemmap)
+      createTableFromRecipesDifferentEnd(recipes, itemmap)
       updateProfit()
       changeProfitColor()
       bindSelectRow()
@@ -121,5 +121,9 @@
     $(document).ready(function(){
       createNavBar()
       updateTable()
-      $("#locations").change(function() {updateTableValues()})
+      $("#category").change(function() { updateTableValues() })
+      $("#quality").change(function() { updateTableValues() })
+      $("#enchantLevel").change(function() { updateTableValues() })
+      $("#locations").change(function() { updateTableValues() })
+      $("#endLocations").change(function() { updateTableValues() })
     })

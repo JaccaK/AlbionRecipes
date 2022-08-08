@@ -5,13 +5,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>AO Alchemy</title>
-  <meta name="description" content="A simple HTML5 Template for new projects.">
-  <meta name="author" content="SitePoint">
+  <title>Alchemy</title>
+  <meta name="description" content="An Alchemist calculator for the game Albion Online. Automatically calculates profit using prices from The Albion Online Data Project and user input.">
+  <meta name="author" content="JaccaKnoff">
 
-  <meta property="og:title" content="Albion Crafting Calculator">
+  <meta property="og:title" content="Albion Online Alchemist Calculator">
   <meta property="og:type" content="website">
-  <meta property="og:description" content="A quick and easy crafting calculator for those using the Albion Online Data Project.">
+  <meta property="og:description" content="An Alchemist calculator for the game Albion Online. Automatically calculates profit using prices from The Albion Online Data Project and user input.">
 
   <link rel="icon" href="/favicon.ico">
 
@@ -25,8 +25,17 @@
 <body>
   <div id="navbararea"></div><br>
   <h2>Alchemy</h2>
-  <label for="locations">City</label>
+  <label for="locations">Start City</label>
   <select name="locations" id="locations">
+    <option value="Thetford">Thetford</option>
+    <option value="Martlock">Martlock</option>
+    <option value="Fort Sterling">Fort Sterling</option>
+    <option value="Bridgewatch">Bridgewatch</option>
+    <option value="Lymhurst">Lymhurst</option>
+    <option value="Caerleon">Caerleon</option>
+  </select>
+  <label for="endLocations">End City</label>
+  <select name="endLocations" id="endLocations">
     <option value="Thetford">Thetford</option>
     <option value="Martlock">Martlock</option>
     <option value="Fort Sterling">Fort Sterling</option>
