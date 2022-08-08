@@ -2,7 +2,7 @@ class Item {
 	constructor(entry){
 		this.id = entry.item_id
 		this.prices = new Map()
-		this.addPrice(entry.city, entry.sell_price_min, entry.sell_price_max_date)
+		this.addPrice(entry.city, entry.quality, entry.sell_price_min, entry.sell_price_max_date)
 	}
 
 	addPrice(city, quality, price, date){
