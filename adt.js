@@ -35,7 +35,12 @@ class Item_Map {
 	}
 
 	getPrice(id, quality, city) {
-		return this.map.get(id).prices.get(quality+":"+city)[0]
+		try {
+			return this.map.get(id).prices.get(quality+":"+city)[0]
+		}
+		catch (error) {
+			return 0
+		}
 	}
 
 	clearMap(){
