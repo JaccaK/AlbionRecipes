@@ -113,9 +113,9 @@ async function updateProfit(){
 	var city = $("#locations").val()
 	var rrr = $("#rrr").val()
 	var nutri = $("#nutri").val()
-	var tax = 0.09
+	var tax = 0.075 //6% tax + 1.5% setup fee
 	if($("#prem").is(":checked"))
-		tax = tax / 2
+		tax = 0.045 //3% tax + 1.5% setup fee
 	$(".profit").each(function () {
 		var price = $(this).parent().children().children(".price").val()
 		var quantity = $(this).parent().children().children(".price").parent().prev().text()
@@ -144,9 +144,9 @@ async function updateProfitProductYield(){
 	var city = $("#locations").val()
 	var rrr = $("#rrr").val()
 	var nutri = $("#nutri").val()
-	var tax = 0.09
+	var tax = 0.075 //6% tax + 1.5% setup fee
 	if($("#prem").is(":checked"))
-		tax = tax / 2
+		tax = 0.045 //3% tax + 1.5% setup fee
 	$(".profit").each(function () {
 		var price = $(this).parent().children().children(".price").val()
 		var quantity = $(this).parent().children().children(".price").parent().prev().text()
