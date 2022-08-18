@@ -69,6 +69,7 @@ function createNavBar(){
 			   +"<ul><li><a href=\"hunterslodge.html\">HUNTER'S LODGE</a></li>"
 			   +"<ul><li><a href=\"warriorsforge.html\">WARRIOR'S FORGE</a></li>"
 			   +"<ul><li><a href=\"refine.html\">REFINING</a></li>"
+			   +"<ul><li><a href=\"farm.html\">FARM</a></li>"
 			   +"</ul><br>"
 	$("#navbararea").append(htmlstuff)
 }
