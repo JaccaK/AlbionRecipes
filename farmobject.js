@@ -120,7 +120,6 @@ async function updateFarmProfit(){
 		if (focus)
 			nurture = $(this).parent().children(".focusyield").text()
 		var profit =  price * (1 - tax) - cost * costquant - babycost + (babycost * nurture)
-		console.log(nurture)
 		$(this).parent().children(".profit").text(Math.trunc(profit))
 	})
 	changeProfitColor()

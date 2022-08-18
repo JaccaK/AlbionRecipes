@@ -20,7 +20,44 @@ var feed = "T1_CARROT,T2_BEAN,T3_WHEAT,T4_TURNIP,T5_CABBAGE,T6_POTATO,T7_CORN,T8
                   ]
     
     var animalRecipes = [
-
+                new Animal("T3_FARM_CHICKEN_BABY","T3_FARM_CHICKEN_GROWN",1,"crops",calcMaxNutri(44,330),480,1,0.6,0.8),
+                new Animal("T4_FARM_GOAT_BABY","T4_FARM_GOAT_GROWN",1,"crops",calcMaxNutri(44,330),480,2,0.73,0.53),
+                new Animal("T5_FARM_GOOSE_BABY", "T5_FARM_GOOSE_GROWN",1,"crops",calcMaxNutri(44,330),480,1,0.8,0.4),
+                new Animal("T6_FARM_SHEEP_BABY","T6_FARM_SHEEP_GROWN",1,"crops",calcMaxNutri(44,330),480,1,0.87,0.27),
+                new Animal("T7_FARM_PIG_BABY","T7_FARM_PIG_GROWN",1,"crops",calcMaxNutri(44,330),480,1,0.91,0.18),
+                new Animal("T8_FARM_COW_BABY", "T8_FARM_COW_GROWN",1,"crops",calcMaxNutri(44,330),480,1,0.93,0.13),
+                new Animal("T3_FARM_OX_BABY", "T3_FARM_OX_GROWN",1,"crops",calcMaxNutri(44,330),480,1,0.84,0.2),
+                new Animal("T4_FARM_OX_BABY", "T4_FARM_OX_GROWN",1,"crops",calcMaxNutri(92,230),768,2,0.79,0.12),
+                new Animal("T5_FARM_OX_BABY", "T5_FARM_OX_GROWN",1,"crops",calcMaxNutri(140,117),1488,3,0.79,0.09),
+                new Animal("T6_FARM_OX_BABY", "T6_FARM_OX_GROWN",1,"crops",calcMaxNutri(188,52),3312,4,0.81,0.06),
+                new Animal("T7_FARM_OX_BABY", "T7_FARM_OX_GROWN",1,"crops",calcMaxNutri(236,22),7290,5,0.84,0.04),
+                new Animal("T8_FARM_OX_BABY", "T8_FARM_OX_GROWN",1,"crops",calcMaxNutri(284,9),19728,6,0.87,0.03),
+                new Animal("T3_FARM_HORSE_BABY", "T3_FARM_HORSE_GROWN",1,"crops",calcMaxNutri(44,330),480,1,0.84,0.2),
+                new Animal("T4_FARM_HORSE_BABY", "T4_FARM_HORSE_GROWN",1,"crops",calcMaxNutri(92,230),768,2,0.79,0.13),
+                new Animal("T5_FARM_HORSE_BABY", "T5_FARM_HORSE_GROWN",1,"crops",calcMaxNutri(140,116),1488,3,0.79,0.09),
+                new Animal("T6_FARM_HORSE_BABY", "T6_FARM_HORSE_GROWN",1,"crops",calcMaxNutri(188,52),3312,4,0.81,0.06),
+                new Animal("T7_FARM_HORSE_BABY", "T7_FARM_HORSE_GROWN",1,"crops",calcMaxNutri(236,22),7920,5,0.84,0.04),
+                new Animal("T8_FARM_HORSE_BABY", "T8_FARM_HORSE_GROWN",1,"crops",calcMaxNutri(284,9),19728,6,0.87,0.026),
+                new Animal("T5_FARM_DIREBOAR_FW_LYMHURST_BABY", "T5_FARM_DIREBOAR_FW_LYMHURST_GROWN",1,"meat",calcMaxNutri(140,116),1488,3,0,0.1),
+                new Animal("T5_FARM_DIREBEAR_FW_FORTSTERLING_BABY", "T5_FARM_DIREBEAR_FW_FORTSTERLING_GROWN",1,"meat",calcMaxNutri(140,116),1488,3,0,0.1),
+                new Animal("T5_FARM_SWAMPDRAGON_FW_THETFORD_BABY", "T5_FARM_SWAMPDRAGON_FW_THETFORD_GROWN",1,"meat",calcMaxNutri(140,116),1488,3,0,0.1),
+                new Animal("T5_FARM_MOABIRD_FW_BRIDGEWATCH_BABY","T5_FARM_MOABIRD_FW_BRIDGEWATCH_GROWN",1,"crops",calcMaxNutri(140,116),1488,3,0,0.1),
+                new Animal("T5_FARM_RAM_FW_MARTLOCK_BABY","T5_FARM_RAM_FW_MARTLOCK_GROWN",1,"crops",calcMaxNutri(140,116),1488,3,0,0.1),
+                new Animal("T5_FARM_GREYWOLF_FW_CAERLEON_BABY","T5_FARM_GREYWOLF_FW_CAERLEON_GROWN",1,"meat",calcMaxNutri(140,116),1488,3,0,0.1),
+                new Animal("T8_FARM_DIREBOAR_FW_LYMHURST_BABY","T8_FARM_DIREBOAR_FW_LYMHURST_GROWN",1,"meat",calcMaxNutri(284,9),19728,6,0,0.025),
+                new Animal("T8_FARM_DIREBEAR_FW_FORTSTERLING_BABY","T8_FARM_DIREBEAR_FW_FORTSTERLING_GROWN",1,"meat",calcMaxNutri(284,9),19728,6,0,0.025),
+                new Animal("T8_FARM_SWAMPDRAGON_FW_THETFORD_BABY", "T8_FARM_SWAMPDRAGON_FW_THETFORD_GROWN",1,"meat",calcMaxNutri(284,9),19728,6,0,0.025),
+                new Animal("T8_FARM_MOABIRD_FW_BRIDGEWATCH_BABY","T8_FARM_MOABIRD_FW_BRIDGEWATCH_GROWN",1,"crops",calcMaxNutri(284,9),19728,6,0,0.025),
+                new Animal("T8_FARM_RAM_FW_MARTLOCK_BABY","T8_FARM_RAM_FW_MARTLOCK_GROWN",1,"crops",calcMaxNutri(284,9),19728,6,0,0.025),
+                new Animal("T8_FARM_GREYWOLF_FW_CAERLEON_BABY","T8_FARM_GREYWOLF_FW_CAERLEON_GROWN",1,"meat",calcMaxNutri(284,9),19728,6,0,0.025),
+                new Animal("T4_FARM_GIANTSTAG_BABY","T4_FARM_GIANTSTAG_GROWN",1,"crops",calcMaxNutri(92,230),768,2,0,0.18),
+                new Animal("T5_FARM_COUGAR_BABY","T5_FARM_COUGAR_GROWN",1,"meat",calcMaxNutri(140,116),1488,3,0,0.1),
+                new Animal("T6_FARM_GIANTSTAG_MOOSE_BABY","T6_FARM_GIANTSTAG_MOOSE_GROWN",1,"crops",calcMaxNutri(188,52),3312,4,0,0.06),
+                new Animal("T6_FARM_DIREWOLF_BABY","T6_FARM_DIREWOLF_GROWN",1,"meat",calcMaxNutri(188,52),3312,4,0,0.06),
+                new Animal("T7_FARM_DIREBOAR_BABY","T7_FARM_DIREBOAR_GROWN",1,"meat",calcMaxNutri(236,22),7920,5,0,0.04),
+                new Animal("T7_FARM_SWAMPDRAGON_BABY","T7_FARM_SWAMPDRAGON_GROWN",1,"meat",calcMaxNutri(236,22),7920,5,0,0.04),
+                new Animal("T8_FARM_DIREBEAR_BABY", "T8_FARM_DIREBEAR_GROWN",1,"meat",calcMaxNutri(284,9),19728,6,0,0.025),
+                new Animal("T8_FARM_MAMMOTH_BABY", "T8_FARM_MAMMOTH_GROWN",1,"crops",calcMaxNutri(284,9),19728,6,0,0.025)
     ]
 
     var recipes = [cropRecipes,animalRecipes]
@@ -46,9 +83,7 @@ var feed = "T1_CARROT,T2_BEAN,T3_WHEAT,T4_TURNIP,T5_CABBAGE,T6_POTATO,T7_CORN,T8
       updateTable()
       $("*").off("change")
       $("#category").change(function() { updateTableValues() })
-      $("#quality").change(function() { updateTableValues() })
-      $("#enchantLevel").change(function() { updateTableValues() })
+      $("#focus").change(function() { updateTableValues() })
       $("#locations").change(function() { updateTableValues() })
-      $("#endLocations").change(function() { updateTableValues() })
       $("*").change(function () { updateFarmProfit() })
     })
