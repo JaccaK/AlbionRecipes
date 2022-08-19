@@ -3,20 +3,20 @@ var feed = "T1_CARROT,T2_BEAN,T3_WHEAT,T4_TURNIP,T5_CABBAGE,T6_POTATO,T7_CORN,T8
                ///constructor(babyid, adultid, quantity, diet, maxnutri, nutrilimit, cycles, baseyield, nuturebonus)
     var cropRecipes = [
                 new Animal("T1_FARM_CARROT_SEED", "T1_CARROT",9,"none",0,0,1,0,2),
-                new Animal("T2_FARM_BEAN_SEED", "T2_BEAN",9,"none",0,0,1,0.33,1.67),
-                new Animal("T3_FARM_WHEAT_SEED", "T3_WHEAT",9,"none",0,0,1,0.60,1.4),
-                new Animal("T4_FARM_TURNIP_SEED", "T4_TURNIP",9,"none",0,0,1,0.73,1.27),
-                new Animal("T5_FARM_CABBAGE_SEED", "T5_CABBAGE",9,"none",0,0,1,0.8,1.2),
-                new Animal("T6_FARM_POTATO_SEED", "T6_POTATO",9,"none",0,0,1,0.87,1.13),
-                new Animal("T7_FARM_CORN_SEED", "T7_CORN",9,"none",0,0,1,0.91,1.09),
-                new Animal("T8_FARM_PUMPKIN_SEED", "T8_PUMPKIN",9,"none",0,0,1,0.93,1.07),
-                new Animal("T2_FARM_AGARIC_SEED","T2_AGARIC",9,"none",0,0,1,0.33,1.67),
-                new Animal("T3_FARM_COMFREY_SEED","T3_COMFREY",9,"none",0,0,1,0.6,1.4),
-                new Animal("T4_FARM_BURDOCK_SEED","T4_BURDOCK",9,"none",0,0,1,0.73,1.27),
-                new Animal("T5_FARM_TEASEL_SEED","T5_TEASEL",9,"none",0,0,1,0.8,1.2),
-                new Animal("T6_FARM_FOXGLOVE_SEED","T6_FOXGLOVE",9,"none",0,0,1,0.87,1.13),
-                new Animal("T7_FARM_MULLEIN_SEED","T7_MULLEIN",9,"none",0,0,1,0.91,1.09),
-                new Animal("T8_FARM_YARROW_SEED","T8_YARROW",9,"none",0,0,1,0.93,1.07)
+                new Animal("T2_FARM_BEAN_SEED", "T2_BEAN",9,"none",0,0,1,0.33,1.33),
+                new Animal("T3_FARM_WHEAT_SEED", "T3_WHEAT",9,"none",0,0,1,0.60,0.8),
+                new Animal("T4_FARM_TURNIP_SEED", "T4_TURNIP",9,"none",0,0,1,0.73,0.53),
+                new Animal("T5_FARM_CABBAGE_SEED", "T5_CABBAGE",9,"none",0,0,1,0.8,0.4),
+                new Animal("T6_FARM_POTATO_SEED", "T6_POTATO",9,"none",0,0,1,0.87,0.27),
+                new Animal("T7_FARM_CORN_SEED", "T7_CORN",9,"none",0,0,1,0.91,0.18),
+                new Animal("T8_FARM_PUMPKIN_SEED", "T8_PUMPKIN",9,"none",0,0,1,0.93,0.13),
+                new Animal("T2_FARM_AGARIC_SEED","T2_AGARIC",9,"none",0,0,1,0.33,1.33),
+                new Animal("T3_FARM_COMFREY_SEED","T3_COMFREY",9,"none",0,0,1,0.6,0.8),
+                new Animal("T4_FARM_BURDOCK_SEED","T4_BURDOCK",9,"none",0,0,1,0.73,0.53),
+                new Animal("T5_FARM_TEASEL_SEED","T5_TEASEL",9,"none",0,0,1,0.8,0.4),
+                new Animal("T6_FARM_FOXGLOVE_SEED","T6_FOXGLOVE",9,"none",0,0,1,0.87,0.27),
+                new Animal("T7_FARM_MULLEIN_SEED","T7_MULLEIN",9,"none",0,0,1,0.91,0.18),
+                new Animal("T8_FARM_YARROW_SEED","T8_YARROW",9,"none",0,0,1,0.93,0.13)
                   ]
     
     var animalRecipes = [
