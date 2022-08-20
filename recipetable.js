@@ -70,6 +70,7 @@ function createNavBar(){
 			   +"<ul><li><a href=\"warriorsforge.html\">WARRIOR'S FORGE</a></li>"
 			   +"<ul><li><a href=\"refine.html\">REFINING</a></li>"
 			   +"<ul><li><a href=\"farm.html\">FARM</a></li>"
+			   +"<ul><li><a href=\"butcher.html\">BUTCHER</a></li>"
 			   +"</ul><br>"
 	$("#navbararea").append(htmlstuff)
 }
@@ -139,31 +140,6 @@ async function updateProfit(){
 	changeProfitColor()
 }
 $("*").change(function() { updateProfit() })
-
-
-async function updateProfitProductYield(){
-	var city = $("#locations").val()
-	var rrr = $("#rrr").val()
-	var nutri = $("#nutri").val()
-	var tax = 0.075 //6% tax + 1.5% setup fee
-	if($("#prem").is(":checked"))
-		tax = 0.045 //3% tax + 1.5% setup fee
-	$(".profit").each(function () {
-		var price = $(this).parent().children().children(".price").val()
-		var quantity = $(this).parent().children().children(".price").parent().prev().text()
-		var nutricost = $(this).parent().children().children(".price").parent().prev().prev().text()
-		nutricost = nutricost * nutri
-		price = price * quantity
-		var cost = 0
-		$(this).parent().children().children(".cost").each(function (){
-			quantity = $(this).parent().prev().text()
-			cost = cost + $(this).val() * quantity
-		})
-		var profit = price * (1 - tax) * (1 + rrr) - cost  - nutricost
-		$(this).parent().children(".profit").text(Math.trunc(profit))
-	})
-	changeProfitColor()
-}
 
 
 function getEnchantFromName(enchant){
