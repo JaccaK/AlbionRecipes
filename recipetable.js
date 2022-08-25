@@ -71,6 +71,7 @@ function createNavBar(){
 			   +"<ul><li><a href=\"refine.html\">REFINING</a></li>"
 			   +"<ul><li><a href=\"farm.html\">FARM</a></li>"
 			   +"<ul><li><a href=\"butcher.html\">BUTCHER</a></li>"
+			   +"<ul><li><a href=\"artefact.html\">FOUNDRY</a></li>"
 			   +"</ul><br>"
 	$("#navbararea").append(htmlstuff)
 }

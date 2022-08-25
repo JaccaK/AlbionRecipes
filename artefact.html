@@ -1,0 +1,104 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Foundry</title>
+  <meta name="description" content="An Artifact Foundry calculator for the game Albion Online. Automatically calculates profit using prices from The Albion Online Data Project and user input.">
+  <meta name="author" content="Jacca">
+
+  <meta property="og:title" content="Albion Online Artifact Foundry Calculator">
+  <meta property="og:type" content="website">
+  <meta property="og:description" content="An Artifact Foundry calculator for the game Albion Online. Automatically calculates profit using prices from The Albion Online Data Project and user input.">
+
+  <link rel="icon" href="/favicon.ico">
+
+  <link rel="stylesheet" href="table.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="recipetable.js"></script>
+  <script src="names.js"></script>
+  <script src="adt.js"></script>
+  <script src="artefact.js"></script>
+</head>
+<body>
+  <style type="text/css">.quality,.enchantLevel,.enchant,.baseyield,.focusyield{display: none;}
+/* Tooltip container */
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted white; /* If you want dots under the hoverable text */
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  background-color: #111;
+  color: #fff;
+  padding: 5px 0;
+  border-radius: 6px;
+  min-width: 350px;
+  text-align: left;
+
+  /* Position the tooltip text */
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -50px;
+
+  /* Fade in tooltip */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+#tablearea > table > tr:nth-child(1) > th:nth-child(3) {
+  min-width: 30px;
+}
+</style>
+
+  <div id="navbararea"></div><br>
+  <h2>Foundry</h2>
+  <label for="category">Category</label>
+  <select name="category" id="category">
+    <option value="0">Warrior</option>
+    <option value="1">Mage</option>
+    <option value="2">Hunter</option>
+    <option value="3">Any</option>
+  </select>
+  <label for="locations">Start City</label>
+  <select name="locations" id="locations">
+    <option value="Thetford">Thetford</option>
+    <option value="Martlock">Martlock</option>
+    <option value="Fort Sterling">Fort Sterling</option>
+    <option value="Bridgewatch">Bridgewatch</option>
+    <option value="Lymhurst">Lymhurst</option>
+    <option value="Caerleon">Caerleon</option>
+  </select>
+  <label for="endLocations">End City</label>
+  <select name="endLocations" id="endLocations">
+    <option value="Thetford">Thetford</option>
+    <option value="Martlock">Martlock</option>
+    <option value="Fort Sterling">Fort Sterling</option>
+    <option value="Bridgewatch">Bridgewatch</option>
+    <option value="Lymhurst">Lymhurst</option>
+    <option value="Caerleon">Caerleon</option>
+  </select>
+  <label for="tax">Tax</label>
+  <select name="tax" id="tax">
+    <option value="0">None</option>
+    <option value="0.045">Premium</option>
+    <option value="0.075">Free to Play</option>
+  </select>
+  <button id="updateButton" onclick="updateTable()">Update</button>
+  <button onclick="hideUnprofitable()">Hide Unprofitable</button>
+  <div id="tablearea"></div>
+</body>
+</html>
