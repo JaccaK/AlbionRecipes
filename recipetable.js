@@ -2,9 +2,9 @@ function createTableFromRecipes(recipes,itemmap){
 	var city = $("#locations").val()
 	var rrr = $("#rrr").val()
 	var nutri = $("#nutri").val()
-	var tax = 0.075 //6% tax + 1.5% setup fee
+	var tax = FREE_TAX //6% tax + 1.5% setup fee
 	if($("#prem").is(":checked"))
-		tax = 0.045 //3% tax + 1.5% setup fee
+		tax = PREM_TAX //3% tax + 1.5% setup fee
 	var quality = $("#quality").val()
 	if(isNaN(quality))
 		quality = 1
@@ -33,9 +33,9 @@ function createTableFromRecipesDifferentEnd(recipes,itemmap){
 	var endCity = $("#endLocations").val()
 	var rrr = $("#rrr").val()
 	var nutri = $("#nutri").val()
-	var tax = 0.075 //6% tax + 1.5% setup fee
+	var tax = FREE_TAX //6% tax + 1.5% setup fee
 	if($("#prem").is(":checked"))
-		tax = 0.045 //3% tax + 1.5% setup fee
+		tax = PREM_TAX //3% tax + 1.5% setup fee
 	var quality = $("#quality").val()
 	if(isNaN(quality))
 		quality = 1
@@ -73,7 +73,7 @@ function createNavBar(){
 			   +"<ul><li><a href=\"butcher.html\">BUTCHER</a></li>"
 			   +"<ul><li><a href=\"artefact.html\">FOUNDRY</a></li>"
 			   +"</ul><br>"
-	$("#navbararea").append(htmlstuff)
+	$("#navbararea").empty().append(htmlstuff)
 }
 
 function updateButtonTextUpdating(){
@@ -116,9 +116,9 @@ async function updateProfit(){
 	var city = $("#locations").val()
 	var rrr = $("#rrr").val()
 	var nutri = $("#nutri").val()
-	var tax = 0.075 //6% tax + 1.5% setup fee
+	var tax = FREE_TAX //6% tax + 1.5% setup fee
 	if($("#prem").is(":checked"))
-		tax = 0.045 //3% tax + 1.5% setup fee
+		tax = PREM_TAX //3% tax + 1.5% setup fee
 	$(".profit").each(function () {
 		var price = $(this).parent().children().children(".price").val()
 		var quantity = $(this).parent().children().children(".price").parent().prev().text()

@@ -136,7 +136,7 @@ var anyclass = [
 
 var recipes = [warrior, mage, hunter, anyclass]
 var itemmap = new Item_Map()
-
+var taxarr = [0, PREM_TAX, FREE_TAX]
 async function updateTable(){
 	updateButtonTextUpdating()
 	updateItemMap(itemmap,itemstring1).then(x => updateItemMap(itemmap, itemstring2)).then(x => updateItemMap(itemmap, itemstring3)).then(x => updateTableValues()).then(x => updateButtonTextUpdated())
@@ -151,7 +151,7 @@ async function updateTableValues() {
 function createArtefactTable(recipes,itemmap) {
 	var start = $("#locations").val()
 	var end = $("#endLocations").val()
-	var tax = $("#tax").val()
+	var tax = taxarr[$("#tax").val()]
 	// Create Table Header
 	$("#tablearea").empty().append("<table>")
 	$("#tablearea > table").append("<tr><th class=\"enchant\">En</th><th>Rune</th><th>#</th><th>Profit</th><th>Artefacts</th>")

@@ -103,7 +103,7 @@ function calcMaxNutri(growtime, nutripoint) {
 
 async function updateFarmProfit(){
 	var city = $("#locations").val()
-	var tax = 0.045 //3% tax + 1.5% setup fee
+	var tax = PREM_TAX //3% tax + 1.5% setup fee
 	var focus = $("#focus").is(":checked")
 	$(".profit").each(function () {
 		var price = $(this).parent().children().children(".price").val()
