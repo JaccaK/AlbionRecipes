@@ -82,7 +82,7 @@ class Recipe {
 }
 
 async function updateItemMap(itemmap, itemstring){
-	var url = "https://www.albion-online-data.com/api/v2/stats/prices/" + itemstring + ".json"
+	var url = "https://" + $("#server").val() + ".albion-online-data.com/api/v2/stats/prices/" + itemstring
 	var response = await $.getJSON(url)
 	response.forEach(item => itemmap.addItem(item))
 }
