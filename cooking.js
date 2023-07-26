@@ -107,6 +107,7 @@
                   ]
     var itemmap = new Item_Map()
     async function updateTable(){
+      itemmap = new Item_Map()
       updateButtonTextUpdating()
       updateItemMap(itemmap,materials).then(x => updateItemMap(itemmap, products)).then(x => updateTableValues()).then(x => updateButtonTextUpdated())
     }
