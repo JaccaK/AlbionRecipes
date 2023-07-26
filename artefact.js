@@ -138,6 +138,7 @@ var recipes = [warrior, mage, hunter, anyclass]
 var itemmap = new Item_Map()
 var taxarr = [0, PREM_TAX, FREE_TAX]
 async function updateTable(){
+	itemmap = new Item_Map()
 	updateButtonTextUpdating()
 	updateItemMap(itemmap,itemstring1).then(x => updateItemMap(itemmap, itemstring2)).then(x => updateItemMap(itemmap, itemstring3)).then(x => updateTableValues()).then(x => updateButtonTextUpdated())
 }
