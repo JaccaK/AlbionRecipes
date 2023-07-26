@@ -34,6 +34,7 @@
                   ]
     var itemmap = new Item_Map()
     async function updateTable(){
+      itemmap = new Item_Map()
       updateButtonTextUpdating()
       updateItemMap(itemmap,materials).then(x => updateItemMap(itemmap, products)).then(x => createTableFromRecipes(recipes, itemmap)).then( x => changeProfitColor() ).then(x => bindSelectRow()).then(x => updateButtonTextUpdated())
     }
