@@ -1,6 +1,10 @@
 # AlbionRecipes
-Javascript, HTML, and CSS for the site http://albion.recipes/
+Javascript, HTML, and CSS for a now defunct site
 
-albion.recipes is an automatic crafting profit calculator utilizing The Albion Online Data Project. We're not associated or endorsed by Albion Online, Sandbox Interactive GmbH, or The Albion Online Data Project. Their respective trademarks belong to them.
+Albion Recipes is an automatic crafting profit calculator utilizing The Albion Online Data Project. We're not associated or endorsed by Albion Online, Sandbox Interactive GmbH, or The Albion Online Data Project. Their respective trademarks belong to them. blah blah blah legal handwavy stuff that probably doesn't actually mean anything.
 
-I encourage you to submit bugs, or clone the code and make translated sites. I don't know Russian, Chinese, or Portuguese. I only know English. I can't do localization that would benefit more players.
+
+# Plans
+I plan to update this in the coming weeks and also release tools to help speed up localization. So far I have made two JSON parsers to help speed the process of updating the site. As of right now, I only have an updated names.js to show for it. I plan to release the parsers, but one is quite literally 2 lines of code.
+I'm also in the process of trying to find hosting, but in the event that I cannot, you can simply download the files which I will bundle into a zip under releases soon.
+Finally, I will be adapting the webpages and adt.js to allow for East support, but as of this moment is only supports West with pre-mists items.
