@@ -5,5 +5,4 @@ Albion Recipes is an automatic crafting profit calculator utilizing The Albion O
 
 
 # Plans
-I plan to update this in the coming weeks and also release tools to help speed up localization. So far I have made two JSON parsers to help speed the process of updating the site. As of right now, I only have an updated names.js to show for it. I plan to release the parsers, but one is quite literally 2 lines of code.
-Finally, I will be adapting the webpages and adt.js to allow for East support, but as of this moment is only supports West with pre-mists items.
+I plan to update this in the coming weeks. So far I have made two parsers to help speed the process of updating the site. You can find them here: https://github.com/JaccaK/AlbionRecipesParsers .
