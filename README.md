@@ -9,6 +9,5 @@ I plan to update this in the coming weeks. So far I have made two parsers to hel
 
 #### TODO
 * Localization, of at least the item names. They're all in the formatted/items.json file, just waiting to be used, I just need a better item class setup to abuse polymorphism concepts to avoid doing work.
-* Refining. Right now Refining is missing x.4 items and enchanted stone recipes.
 * T1, T2, T3 items. I don't think these are in the request url strings, so they currently don't have Albion Online Data Project data.
 * Farm is missing the owl seeds from Brecilien rep, but so is the wiki, so it's at the bottom of the update list.
