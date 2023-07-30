@@ -1679,4 +1679,6 @@ var fey = "T4_HEAD_LEATHER_FEY,T4_HEAD_LEATHER_FEY@1,T4_HEAD_LEATHER_FEY@2,T4_HE
       $("#enchantLevel").change(function() { updateTableValues() })
       $("#locations").change(function() { updateTableValues() })
       $("#endLocations").change(function() { updateTableValues() })
+      $("#language").change(function() { updateTableValues() })
+      $("#server").change(function() { updateTable() })
     })

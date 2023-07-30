@@ -85,5 +85,7 @@ var feed = "T1_CARROT,T2_BEAN,T3_WHEAT,T4_TURNIP,T5_CABBAGE,T6_POTATO,T7_CORN,T8
       $("#category").change(function() { updateTableValues() })
       $("#focus").change(function() { updateTableValues() })
       $("#locations").change(function() { updateTableValues() })
+      $("#language").change(function() { updateTableValues() })
+      $("#server").change(function() { updateTable() })
       $("*").change(function () { updateFarmProfit() })
     })

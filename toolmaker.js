@@ -823,4 +823,6 @@ var enchant4 = "T4_HEAD_GATHERER_FIBER@4,T4_ARMOR_GATHERER_FIBER@4,T4_SHOES_GATH
       $("#enchantLevel").change(function() { updateTableValues() })
       $("#locations").change(function() { updateTableValues() })
       $("#endLocations").change(function() { updateTableValues() })
+      $("#language").change(function() { updateTableValues() })
+      $("#server").change(function() { updateTable() })
     })

@@ -159,4 +159,6 @@ var materials = "T5_FIBER_LEVEL1@1,T7_PLANKS_LEVEL3@3,T5_ORE_LEVEL4@4,T4_METALBA
       $("#enchantLevel").change(function() { updateTableValues() })
       $("#locations").change(function() { updateTableValues() })
       $("#endLocations").change(function() { updateTableValues() })
+      $("#language").change(function() { updateTableValues() })
+      $("#server").change(function() { updateTable() })
     })

@@ -174,4 +174,6 @@ $(document).ready(function(){
     $("#enchantLevel").change(function() { updateTableValues() })
     $("#locations").change(function() { updateTableValues() })
     $("#endLocations").change(function() { updateTableValues() })
+    $("#language").change(function() { updateTableValues() })
+      $("#server").change(function() { updateTable() })
 })

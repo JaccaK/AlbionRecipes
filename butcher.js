@@ -112,5 +112,7 @@ var materials = "T1_FISHCHOPS,T3_FARM_CHICKEN_GROWN,T4_FARM_GOAT_GROWN,T5_FARM_G
       $("#enchantLevel").change(function() { updateTableValues() })
       $("#locations").change(function() { updateTableValues() })
       $("#endLocations").change(function() { updateTableValues() })
+      $("#language").change(function() { updateTableValues() })
+      $("#server").change(function() { updateTable() })
       $("*").change(function () { updateProfitProductYield() })
     })

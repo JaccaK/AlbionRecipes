@@ -241,4 +241,6 @@ new Recipe("T8_MEAL_SANDWICH_AVALON@3", new Map([["T4_BREAD", 36], ["T8_MEAT", 7
       $("#enchantLevel").change(function() { updateTableValues() })
       $("#locations").change(function() { updateTableValues() })
       $("#endLocations").change(function() { updateTableValues() })
+      $("#language").change(function() { updateTableValues() })
+      $("#server").change(function() { updateTable() })
     })
