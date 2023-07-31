@@ -88,5 +88,5 @@ async function updateItemMap(itemmap, itemstring){
 }
 
 function convertNut(itemvalue) {
-	return itemvalue/20/44.44
+	return itemvalue/20/(400/9)
 }
