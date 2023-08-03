@@ -8,5 +8,4 @@ Albion Recipes is an automatic crafting profit calculator utilizing The Albion O
 I plan to update this in the coming weeks. So far I have made two parsers to help speed the process of updating the site. You can find them here: https://github.com/JaccaK/AlbionRecipesParsers . I have also updated most of the calculators.
 
 #### TODO
-* Owl saddler recipes
 * Favicon no longer displays after renewing my domain and using it as a custom domain name, which is an easy but boring fix
