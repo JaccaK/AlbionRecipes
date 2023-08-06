@@ -1,0 +1,81 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Laborers</title>
+  <meta name="description" content="A Laborer calculator for the game Albion Online. Automatically calculates profit using prices from The Albion Online Data Project and user input.">
+  <meta name="author" content="Jacca">
+
+  <meta property="og:title" content="Albion Online Warrior's Forge Calculator">
+  <meta property="og:type" content="website">
+  <meta property="og:description" content="A Warrior's Forge calculator for the game Albion Online. Automatically calculates profit using prices from The Albion Online Data Project and user input.">
+
+  <link rel="icon" href="favicon.ico">
+
+  <link rel="stylesheet" href="table.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="recipetable.js"></script>
+  <script src="names.js"></script>
+  <script src="adt.js"></script>
+  <script src="journaladt.js"></script>
+  <script src="laborers.js"></script>
+  <style>
+    .loot, .amount{
+      display: none;
+      visibility: hidden;
+    }
+    #happy {
+      width: 50px;
+    }
+  </style>
+</head>
+<body>
+  <style type="text/css">.enchant{display: none;}</style>
+  <div id="navbararea"></div><br>
+  <h2>Laborer Journals</h2>
+  <label for="tier">Category</label>
+  <select name="tier" id="tier">
+    <option value="0">T2</option>
+    <option value="1">T3</option>
+    <option value="2">T4</option>
+    <option value="3">T5</option>
+    <option value="4">T6</option>
+    <option value="5">T7</option>
+    <option value="6">T8</option>
+  </select>
+  <select id="category">
+    <option value="0">Gathering</option>
+    <option value="1">Crafting</option>
+    <option value="2">Fishing</option>
+  </select>
+  <label for="server">Server</label>
+  <select name="server" id="server">
+    <option value="west">West</option>
+    <option value="east">East</option>
+  </select>
+  <br>
+  <label for="locations">City</label>
+  <select name="locations" id="locations">
+    <option value="Thetford">Thetford</option>
+    <option value="Martlock">Martlock</option>
+    <option value="Fort Sterling">Fort Sterling</option>
+    <option value="Bridgewatch">Bridgewatch</option>
+    <option value="Lymhurst">Lymhurst</option>
+    <option value="Caerleon">Caerleon</option>
+    <option value="5003">Brecilien</option>
+  </select>
+  <label for="tax">Tax</label>
+  <select name="tax" id="tax">
+    <option value="0">None</option>
+    <option value="1">Premium</option>
+    <option value="2">Free to Play</option>
+  </select>
+  <label for="happy">Happiness Multiplier</label>
+  <input type="number" id="happy" value=1.5></input>
+  <button id="updateButton" onclick="updateTable()">Update</button>
+  <div id="tablearea" style="overflow:auto;"></div>
+</body>
+</html>
