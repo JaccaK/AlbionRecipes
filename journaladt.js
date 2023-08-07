@@ -67,7 +67,7 @@ function createTableFromJournals(journal_iterable, itemmap, tax){
 	$("#tablearea > table").append(string)
 }
 
-TAXES = [0,FREE_TAX,PREM_TAX]
+TAXES = [0,PREM_TAX,FREE_TAX]
 
 function updateJournalProfit(){
 	var city = $("#locations").val()
