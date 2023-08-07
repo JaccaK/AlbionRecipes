@@ -47,7 +47,7 @@ function createTableFromJournals(journal_iterable, itemmap, tax){
 	})
 	$("#tablearea > table").append(string)
 
-	$("#tablearea > table").append("<tr><th>Empty Journal</th><th>Full Journal</th><th>Journal Spread</th><th>Journal Profit</th></tr>")
+	$("#tablearea > table").append("<tr><th>Empty Journal</th><th>Full Journal</th><th>Journal Spread</th><th>Average Mission Profit</th></tr>")
 
 	string = ""
 	journal_iterable.forEach(x =>
