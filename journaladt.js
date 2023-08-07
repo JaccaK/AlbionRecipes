@@ -91,6 +91,8 @@ function updateJournalProfit(){
 		var profit = revenue * (1 - tax) - full
 		$(this).text(Math.trunc(profit))
 	})
+	changeProfitColor()
+	changeSpreadColor()
 }
 
 function changeSpreadColor() {
