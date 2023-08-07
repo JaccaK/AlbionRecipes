@@ -47,7 +47,7 @@ function createTableFromJournals(journal_iterable, itemmap, tax){
 	})
 	$("#tablearea > table").append(string)
 
-	$("#tablearea > table").append("<tr><th>Empty Journal</th><th>Full Journal</th><th>Journal Spread</th><th>Average Mission Profit</th></tr>")
+	$("#tablearea > table").append("<tr><th>Empty Journal</th><th>Full Journal</th><th>Journal Spread</th><th>Average Mission Profit</th><th>Average Profit (No Journal)</th></tr>")
 
 	string = ""
 	journal_iterable.forEach(x =>
@@ -57,7 +57,7 @@ function createTableFromJournals(journal_iterable, itemmap, tax){
 		"<td><label for=\"full\">" + ITEM_NAMES.get(x.full) + "</label><input type = \"number\" class=\"full\" style=\"width:80%\" min=0 value=" 
 		+ itemmap.getPrice(x.full,1,$("#locations").val()) +"></td>" +
 		"<td class=\"spread\">" + (itemmap.getPrice(x.full,1,$("#locations").val()) - itemmap.getPrice(x.name,1,$("#locations").val())) + "</td>" +
-		"<td class=\"profit\">0<td>"
+		"<td class=\"profit\">0</td><td class=\"raw\">0</td>"
 		for (const k of x.loot.keys()){
 			s = s + "<td class=\"loot\">" + k + "</td><td class=\"amount\">" + x.loot.get(k) +"</td>"
 		}
@@ -89,9 +89,10 @@ function updateJournalProfit(){
 			var price = $("#" + $(this).text().replace("@","")).val()
 			revenue = revenue + (amt * price)
 		})
-		revenue = revenue * happy_mult
-		var profit = (revenue * (1 - tax) - full) + parseInt(empty)
+		revenue = revenue * happy_mult * (1 - tax)
+		var profit = (revenue  - full) + parseInt(empty)
 		$(this).text(Math.trunc(profit))
+		$(this).parent().children(".raw").text(Math.trunc(revenue))
 	})
 	changeProfitColor()
 	changeSpreadColor()
@@ -105,4 +106,12 @@ function changeSpreadColor() {
         color = 'green';
     $(this).css('color', color);
     })
+ 	$(".raw").each( function() {
+    var profit = parseInt($(this).text().trim());
+    var color = 'red';
+    if (!isNaN(profit) && profit > 0) 
+        color = 'green';
+    $(this).css('color', color);
+    })
+       
 }
