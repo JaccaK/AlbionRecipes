@@ -76,7 +76,7 @@ function updateJournalProfit(){
 	$(".spread").each(function(){
 		var full = $(this).parent().children().children(".full").val()
 		var empty = $(this).parent().children().children(".empty").val()
-		var spread = (full - empty) * (1 - tax)
+		var spread = full  * (1 - tax) - empty
 		$(this).text(Math.trunc(spread))
 	})
 	$(".profit").each(function() {
@@ -88,7 +88,7 @@ function updateJournalProfit(){
 			revenue = revenue + (amt * price)
 		})
 		revenue = revenue * happy_mult
-		var profit = (revenue - full) * (1 - tax)
+		var profit = revenue * (1 - tax) - full
 		$(this).text(Math.trunc(profit))
 	})
 }
