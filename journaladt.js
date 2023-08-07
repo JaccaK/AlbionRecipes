@@ -82,13 +82,15 @@ function updateJournalProfit(){
 	$(".profit").each(function() {
 		var revenue = 0
 		var full = $(this).parent().children().children(".full").val()
+		var empty = $(this).parent().children().children(".empty").val()
+		console.log(empty)
 		$(this).parent().children(".loot").each(function(){
 			var amt = parseFloat($(this).next().text())
 			var price = $("#" + $(this).text().replace("@","")).val()
 			revenue = revenue + (amt * price)
 		})
 		revenue = revenue * happy_mult
-		var profit = revenue * (1 - tax) - full
+		var profit = (revenue * (1 - tax) - full) + parseInt(empty)
 		$(this).text(Math.trunc(profit))
 	})
 	changeProfitColor()
