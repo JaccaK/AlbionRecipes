@@ -69,9 +69,8 @@ function createNavBar(){
 			   +"<ul><li><a href=\"hunterslodge.html\">HUNTER'S LODGE</a></li>"
 			   +"<ul><li><a href=\"warriorsforge.html\">WARRIOR'S FORGE</a></li>"
 			   +"<ul><li><a href=\"refine.html\">REFINING</a></li>"
-			   +"<ul><li><a href=\"farm.html\">FARM</a></li>"
 			   +"<ul><li><a href=\"butcher.html\">BUTCHER</a></li>"
-			   +"<ul><li><a href=\"artefact.html\">FOUNDRY</a></li>"
+			   +"<ul><li><a href=\"extras.html\">EXTRAS</a></li>"
 			   +"<ul><li><select id=\"language\"><option value=\"EN-US\">English</option><option value=\"KO-KR\">한국인</option><option value=\"ID-ID\">Indonesia</option><option value=\"RU-RU\">Русский</option><option value=\"JA-JP\">日本語</option><option value=\"ZH-TW\">台湾华人</option><option value=\"DE-DE\">Deutsch</option><option value=\"PL-PL\">Polski</option><option value=\"FR-FR\">Français</option><option value=\"ZH-CN\">中国 中文</option><option value=\"ES-ES\">Español</option><option value=\"PT-BR\">Português</option><option value=\"IT-IT\">Italiano</option></select></li>"
 			   +"</ul><br>"
 	$("#navbararea").empty().append(htmlstuff)
