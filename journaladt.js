@@ -90,7 +90,7 @@ function updateJournalProfit(){
 			revenue = revenue + (amt * price)
 		})
 		revenue = revenue * happy_mult * (1 - tax)
-		var profit = (revenue  - full) + parseInt(empty)
+		var profit = (revenue  - full) + parseInt(empty) * (1 - tax)
 		$(this).text(Math.trunc(profit))
 		$(this).parent().children(".raw").text(Math.trunc(revenue))
 	})
