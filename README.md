@@ -9,3 +9,4 @@ I plan to update this in the coming weeks. So far I have made two parsers to hel
 
 ### TODO
 * Transport calculator
+* Nutrition Calculator
