@@ -5,10 +5,7 @@ Albion Recipes is an automatic crafting profit calculator utilizing The Albion O
 
 
 # Plans
-I plan to update this in the coming weeks. So far I have made two parsers to help speed the process of updating the site. You can find them here: https://github.com/JaccaK/AlbionRecipesParsers . I have also updated most of the calculators.
-
 ### TODO
-* Update Alchemy calculator with new recipes
 * Update Farming calculator with new yield bonus (9.9 yield average vs 9 for affected crops?)
 * Transport calculator
 * Nutrition Calculator
