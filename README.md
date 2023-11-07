@@ -6,6 +6,5 @@ Albion Recipes is an automatic crafting profit calculator utilizing The Albion O
 
 # Plans
 ### TODO
-* Update Farming calculator with new yield bonus (9.9 yield average vs 9 for affected crops?)
 * Transport calculator
 * Nutrition Calculator
