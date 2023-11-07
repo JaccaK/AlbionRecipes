@@ -35,8 +35,8 @@
   <br>
   <label for="category">Category</label>
   <select name="category" id="category">
-    <option value="0">Crops</option>
-    <option value="1">Animals</option>
+    <option value="0">Crops & Animal Products</option>
+    <option value="1">Livestock & Mounts</option>
   </select>
   <label for="locations">City</label>
   <select name="locations" id="locations">
@@ -50,6 +50,8 @@
   </select>
   <label for="focus">Focus</label>
   <input type="checkbox" name="focus" id="focus">
+  <label for="citybonus">City Bonus</label>
+  <input type="checkbox" name="citybonus" id="citybonus">
   <button id="updateButton" onclick="updateTable()">Update</button>
   <button onclick="hideUnprofitable()">Hide Unprofitable</button>
   <div id="tablearea" style="overflow:auto;"></div>

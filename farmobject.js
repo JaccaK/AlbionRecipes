@@ -3,8 +3,12 @@ const meatids = ["T3_MEAT","T4_MEAT","T5_MEAT","T6_MEAT","T7_MEAT","T8_MEAT"]
 const cropids = ["T1_CARROT","T2_BEAN","T3_WHEAT","T4_TURNIP","T5_CABBAGE","T6_POTATO","T7_CORN","T8_PUMPKIN","T2_AGARIC","T3_COMFREY","T4_BURDOCK","T5_TEASEL","T6_FOXGLOVE","T7_MULLEIN","T8_YARROW"]
 
 class Animal {
-	constructor(babyid, adultid, quantity, diet, maxnutri, nutrilimit, cycles, baseyield, nuturebonus) {
-		this.babyid = babyid
+	constructor(babyid, adultid, quantity, diet, maxnutri, nutrilimit, cycles, baseyield, nuturebonus, citybonus) {
+		if (babyid !== undefined){ 
+			this.babyid = babyid
+		} else {
+			this.babyid = "UNDEFINED"
+		}
 		this.adultid = adultid
 		this.nutrition = dietmap.get(diet)
 		this.foods = selectFood(diet)
@@ -12,6 +16,11 @@ class Animal {
 		this.baseyield = baseyield
 		this.focusyield = baseyield + (cycles*nuturebonus)
 		this.quantity = quantity
+		if (citybonus !== undefined){
+			this.citybonus = citybonus
+		} else {
+			this.citybonus = false
+		}
 	}
 
 	profit(itemmap, city, tax, foodids){
@@ -38,11 +47,18 @@ class Animal {
 	createTableRow(itemmap, city, endCity, tax, focus){
 		var string = "<tr><td class=\"enchant\">"+getEnchantFromName(this.adultid)
 		+"</td><td>"+ITEM_NAMES.get(this.adultid)+"</td><td>"
-		+this.quantity+"</td><td><input type=\"number\" class=\"price\" style=\"width:80%\" min=0 value="
+		if (this.citybonus && $("#citybonus").is(':checked')){  
+		string = string + (this.quantity * 1.1)+"</td>"
+		} else {
+		string = string + this.quantity+"</td>"	
+		}	
+		string = string +"<td><input type=\"number\" class=\"price\" style=\"width:80%\" min=0 value="
 		+itemmap.getPrice(this.adultid,1,endCity)+"></td><td class=\"profit\">"
-		+Math.trunc(this.profitBool(itemmap, endCity, tax, focus))
-		+"</td><td>"+ITEM_NAMES.get(this.babyid)+"</td><td>"+1
+		+Math.trunc(this.profitBool(itemmap, endCity, tax, focus)) +"</td>"
+		if (this.babyid != "UNDEFINED"){
+		string = string +"<td>"+ITEM_NAMES.get(this.babyid)+"</td><td>"+1
 		+"</td><td><input type=\"number\" class=\"babycost\" min=0 size=\"8\" value="+itemmap.getPrice(this.babyid,1,city)+"></td>"
+		}
 		if(this.foods.length > 0){
 			string = string + "<td>"+ITEM_NAMES.get(getMinPriceFromIDs(this.foods,itemmap,city,1))+"</td><td>"+this.foodtotal
 			+"</td><td><input type=\"number\" class=\"cost\" min=0 size=\"8\" value="+itemmap.getPrice(getMinPriceFromIDs(this.foods,itemmap,city,1),1,city)+"></td>"
@@ -110,6 +126,9 @@ async function updateFarmProfit(){
 		var quantity = $(this).parent().children().children(".price").parent().prev().text()
 		price = price * quantity
 		var babycost = $(this).parent().children().children(".babycost").val()
+		if (babycost === undefined) {
+			babycost = 0
+		}
 		var cost = $(this).parent().children().children(".cost").val()
 		var costquant = $(this).parent().children().children(".cost").parent().prev().text()
 		if (isNaN(cost)) {
