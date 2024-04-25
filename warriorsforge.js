@@ -1893,7 +1893,7 @@ var crystal = ""
       itemmap.clearMap()
       updateItemMap(itemmap,appendItems([materials, fey, t1tot3])).then(x => updateItemMap(itemmap, artefact)).then(x => updateItemMap(itemmap, enchant4)).then(x => updateItemMap(itemmap, weapon3))
       .then(x => updateItemMap(itemmap, appendItems([armor1,offhand])))
-      .then(x => updateItemMap(itemmap, appendItems([armor2,weapon3]))).then(x => updateItemMap(itemmap, weapon1)).then(x => updateItemMap(itemmap, weapon2))
+      .then(x => updateItemMap(itemmap, appendItems([armor2,weapon3]))).then(x => updateItemMap(itemmap, weapon1)).then(x => updateItemMap(itemmap, weapon2)).then(x => updateItemMap(itemmap, crystal))
       .then(x => updateTableValues()).then(x => updateButtonTextUpdated())
     }
 
