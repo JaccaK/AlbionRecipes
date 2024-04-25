@@ -5,7 +5,6 @@ Albion Recipes is an automatic crafting profit calculator utilizing The Albion O
 
 
 # Plans
-* Alchemy Recipes
 * Farming Calc rework (bandaid fix)
 * Vue Rewrite
 
