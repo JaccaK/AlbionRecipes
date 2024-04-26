@@ -11,7 +11,9 @@ class Animal {
 		}
 		this.adultid = adultid
 		this.nutrition = dietmap.get(diet)
+		if (this.nutrition === undefined) { this.nutrition = 48 }
 		this.foods = selectFood(diet)
+		this.diet = diet
 		this.foodtotal = calcFoodAmount(maxnutri,nutrilimit,this.nutrition)
 		this.baseyield = baseyield
 		this.focusyield = baseyield + (cycles*nuturebonus)
@@ -59,9 +61,17 @@ class Animal {
 		string = string +"<td>"+ITEM_NAMES.get(this.babyid)+"</td><td>"+1
 		+"</td><td><input type=\"number\" class=\"babycost\" min=0 size=\"8\" value="+itemmap.getPrice(this.babyid,1,city)+"></td>"
 		}
-		if(this.foods.length > 0){
-			string = string + "<td>"+ITEM_NAMES.get(getMinPriceFromIDs(this.foods,itemmap,city,1))+"</td><td>"+this.foodtotal
-			+"</td><td><input type=\"number\" class=\"cost\" min=0 size=\"8\" value="+itemmap.getPrice(getMinPriceFromIDs(this.foods,itemmap,city,1),1,city)+"></td>"
+		if(this.foods.length > 0){ // This is such a mess.
+			var food = getMinPriceFromIDs(this.foods,itemmap,city,1)
+			var test_food = getMinPriceFromIDs(cropids,itemmap,city,1)
+			var food_price = itemmap.getPrice(food,1,city)
+			var test_food_price = itemmap.getPrice(test_food,1,city)
+			var cheaper = test_food_price * 18 < food_price * 10
+			if (!Array.from(dietmap.keys()).includes(this.diet)) {
+				food = cheaper ? test_food : food
+			} else { cheaper = false } // We probably never get here, but better safe and all that.
+			string = string + "<td>"+ITEM_NAMES.get(food)+"</td><td>"+(this.foodtotal + cheaper*8)
+			+"</td><td><input type=\"number\" class=\"cost\" min=0 size=\"8\" value="+itemmap.getPrice(food,1,city)+"></td>"
 		}
 		string = string +"<td class=\"baseyield\">"+this.baseyield+"</td><td class=\"focusyield\">"+this.focusyield+"</td>"
 		return string
@@ -82,11 +92,13 @@ function getMinPriceFromIDs(idarray, itemmap, city, quality){
 function selectFood(food){
 	switch(food){
 		case "meat":
-		return meatids
+			return meatids
 		case "crops":
-		return cropids
+			return cropids
+		case "none":
+			return []
 		default:
-		return []
+			return [food]
 	}
 }
 

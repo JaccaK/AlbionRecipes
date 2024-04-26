@@ -17,20 +17,20 @@ var produce = "T3_EGG,T4_MILK,T5_EGG,T6_MILK,T8_MILK"
                 new Animal("T6_FARM_FOXGLOVE_SEED","T6_FOXGLOVE",9,"none",0,0,1,0.87,0.27,true),
                 new Animal("T7_FARM_MULLEIN_SEED","T7_MULLEIN",9,"none",0,0,1,0.91,0.18,true),
                 new Animal("T8_FARM_YARROW_SEED","T8_YARROW",9,"none",0,0,1,0.93,0.13,true),
-                new Animal(undefined, "T3_EGG", 18,"crops", calcMaxNutri(44,330), 480, 1, 0, 0, true),
-                new Animal(undefined, "T4_MILK", 18,"crops", calcMaxNutri(44,330), 480, 1, 0, 0, true),
-                new Animal(undefined, "T5_EGG", 18,"crops", calcMaxNutri(44,330), 480, 1, 0, 0, true),
-                new Animal(undefined, "T6_MILK", 18,"crops", calcMaxNutri(44,330), 480, 1, 0, 0, true),
-                new Animal(undefined, "T8_MILK", 18,"crops", calcMaxNutri(44,330), 480, 1, 0, 0, true)
+                new Animal(undefined, "T3_EGG", 18,"T3_WHEAT", calcMaxNutri(44,330), 480, 1, 0, 0, true),
+                new Animal(undefined, "T4_MILK", 18,"T4_TURNIP", calcMaxNutri(44,330), 480, 1, 0, 0, true),
+                new Animal(undefined, "T5_EGG", 18,"T5_CABBAGE", calcMaxNutri(44,330), 480, 1, 0, 0, true),
+                new Animal(undefined, "T6_MILK", 18,"T6_POTATO", calcMaxNutri(44,330), 480, 1, 0, 0, true),
+                new Animal(undefined, "T8_MILK", 18,"T8_PUMPKIN", calcMaxNutri(44,330), 480, 1, 0, 0, true)
                   ]
 
     var animalRecipes = [
-                new Animal("T3_FARM_CHICKEN_BABY","T3_FARM_CHICKEN_GROWN",1,"crops",calcMaxNutri(44,330),480,1,0.6,0.8),
-                new Animal("T4_FARM_GOAT_BABY","T4_FARM_GOAT_GROWN",1,"crops",calcMaxNutri(44,330),480,2,0.73,0.53),
-                new Animal("T5_FARM_GOOSE_BABY", "T5_FARM_GOOSE_GROWN",1,"crops",calcMaxNutri(44,330),480,1,0.8,0.4),
-                new Animal("T6_FARM_SHEEP_BABY","T6_FARM_SHEEP_GROWN",1,"crops",calcMaxNutri(44,330),480,1,0.87,0.27),
-                new Animal("T7_FARM_PIG_BABY","T7_FARM_PIG_GROWN",1,"crops",calcMaxNutri(44,330),480,1,0.91,0.18),
-                new Animal("T8_FARM_COW_BABY", "T8_FARM_COW_GROWN",1,"crops",calcMaxNutri(44,330),480,1,0.93,0.13),
+                new Animal("T3_FARM_CHICKEN_BABY","T3_FARM_CHICKEN_GROWN",1,"T3_WHEAT",calcMaxNutri(44,330),480,1,0.6,0.8),
+                new Animal("T4_FARM_GOAT_BABY","T4_FARM_GOAT_GROWN",1,"T4_TURNIP",calcMaxNutri(44,330),480,2,0.73,0.53),
+                new Animal("T5_FARM_GOOSE_BABY", "T5_FARM_GOOSE_GROWN",1,"T5_CABBAGE",calcMaxNutri(44,330),480,1,0.8,0.4),
+                new Animal("T6_FARM_SHEEP_BABY","T6_FARM_SHEEP_GROWN",1,"T6_POTATO",calcMaxNutri(44,330),480,1,0.87,0.27),
+                new Animal("T7_FARM_PIG_BABY","T7_FARM_PIG_GROWN",1,"T7_CORN",calcMaxNutri(44,330),480,1,0.91,0.18),
+                new Animal("T8_FARM_COW_BABY", "T8_FARM_COW_GROWN",1,"T8_PUMPKIN",calcMaxNutri(44,330),480,1,0.93,0.13),
                 new Animal("T3_FARM_OX_BABY", "T3_FARM_OX_GROWN",1,"crops",calcMaxNutri(44,330),480,1,0.84,0.2),
                 new Animal("T4_FARM_OX_BABY", "T4_FARM_OX_GROWN",1,"crops",calcMaxNutri(92,230),768,2,0.79,0.12),
                 new Animal("T5_FARM_OX_BABY", "T5_FARM_OX_GROWN",1,"crops",calcMaxNutri(140,117),1488,3,0.79,0.09),
