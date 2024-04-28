@@ -1,6 +1,41 @@
 const dietmap = new Map([["meat",52],["crops",48],["none",1]])
 const meatids = ["T3_MEAT","T4_MEAT","T5_MEAT","T6_MEAT","T7_MEAT","T8_MEAT"]
 const cropids = ["T1_CARROT","T2_BEAN","T3_WHEAT","T4_TURNIP","T5_CABBAGE","T6_POTATO","T7_CORN","T8_PUMPKIN","T2_AGARIC","T3_COMFREY","T4_BURDOCK","T5_TEASEL","T6_FOXGLOVE","T7_MULLEIN","T8_YARROW"]
+const seed_vendor_price = new Map([
+	 ["T1_FARM_CARROT_SEED",   2000]
+	,["T2_FARM_BEAN_SEED",     3000]
+	,["T3_FARM_WHEAT_SEED",    5000]
+	,["T4_FARM_TURNIP_SEED",   7500]
+	,["T5_FARM_CABBAGE_SEED", 10000]
+	,["T6_FARM_POTATO_SEED",  15000]
+	,["T7_FARM_CORN_SEED",    22500]
+	,["T8_FARM_PUMPKIN_SEED", 30000]
+	,["T2_FARM_AGARIC_SEED",   3000]
+	,["T3_FARM_COMFREY_SEED",  5000]
+	,["T4_FARM_BURDOCK_SEED",  7500]
+	,["T5_FARM_TEASEL_SEED",  10000]
+	,["T6_FARM_FOXGLOVE_SEED",15000]
+	,["T7_FARM_MULLEIN_SEED", 22500]
+	,["T8_FARM_YARROW_SEED",  30000]
+	,["T3_FARM_CHICKEN_BABY",  5000]
+	,["T4_FARM_GOAT_BABY",     7500]
+	,["T5_FARM_GOOSE_BABY",   10000]
+	,["T6_FARM_SHEEP_BABY",   15000]
+	,["T7_FARM_PIG_BABY",     22500]
+	,["T8_FARM_COW_BABY",     30000]
+	,["T3_FARM_OX_BABY",      25000]
+	,["T4_FARM_OX_BABY",      75000]
+	,["T5_FARM_OX_BABY",     225000]
+	,["T6_FARM_OX_BABY",     675000]
+	,["T7_FARM_OX_BABY",    2025000]
+	,["T8_FARM_OX_BABY",    6075000]
+	,["T3_FARM_HORSE_BABY",   25000]
+	,["T4_FARM_HORSE_BABY",   75000]
+	,["T5_FARM_HORSE_BABY",  225000]
+	,["T6_FARM_HORSE_BABY",  675000]
+	,["T7_FARM_HORSE_BABY", 2025000]
+	,["T8_FARM_HORSE_BABY", 6075000]
+])
 
 class Animal {
 	constructor(babyid, adultid, quantity, diet, maxnutri, nutrilimit, cycles, baseyield, nuturebonus, citybonus) {
@@ -59,13 +94,13 @@ class Animal {
 		+Math.trunc(this.profitBool(itemmap, endCity, tax, focus)) +"</td>"
 		if (this.babyid != "UNDEFINED"){
 		string = string +"<td>"+ITEM_NAMES.get(this.babyid)+"</td><td>"+1
-		+"</td><td><input type=\"number\" class=\"babycost\" min=0 size=\"8\" value="+itemmap.getPrice(this.babyid,1,city)+"></td>"
+		+"</td><td><input type=\"number\" class=\"babycost\" min=0 size=\"8\" value="+vendor_or_market(this.babyid,city)+"></td>"
 		}
 		if(this.foods.length > 0){ // This is such a mess.
 			var food = getMinPriceFromIDs(this.foods,itemmap,city,1)
 			var test_food = getMinPriceFromIDs(cropids,itemmap,city,1)
-			var food_price = itemmap.getPrice(food,1,city)
-			var test_food_price = itemmap.getPrice(test_food,1,city)
+			var food_price = itemmap.getPrice(food,1,city) == 0 ? 9999999 : itemmap.getPrice(food,1,city)
+			var test_food_price = itemmap.getPrice(test_food,1,city)== 0 ? 9999999 : itemmap.getPrice(test_food,1,city)
 			var cheaper = test_food_price * 18 < food_price * 10
 			if (!Array.from(dietmap.keys()).includes(this.diet)) {
 				food = cheaper ? test_food : food
@@ -129,6 +164,15 @@ function calcMaxNutri(growtime, nutripoint) {
 	return growtime * 60 * 60 / nutripoint
 }
 
+function vendor_or_market(babyid,city){
+	const market = itemmap.getPrice(babyid,1,city)
+	if (!Array.from(seed_vendor_price.keys()).includes(babyid)){
+		return market
+	}
+	const vendor = seed_vendor_price.get(babyid)
+	if (market == 0) { return vendor }
+	return vendor > market ? market : vendor
+}
 async function updateFarmProfit(){
 	var city = $("#locations").val()
 	var tax = PREM_TAX //3% tax + 1.5% setup fee
