@@ -131,7 +131,7 @@ async function updateProfit(){
 			exluded = $(this).parent().next().text()
 			has_exclusions = (has_exclusions || exluded == "true")
 		})
-		has_exclusions =  force_single_craft
+		if (force_single_craft) {has_exclusions = force_single_craft}
 		$(this).parent().children().children(".cost").each(function (){
 			quantity = $(this).parent().prev().text()
 			exluded = $(this).parent().next().text()
