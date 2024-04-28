@@ -124,7 +124,6 @@ async function updateProfit(){
 		var price = $(this).parent().children().children(".price").val()
 		var quantity = $(this).parent().children().children(".price").parent().prev().text()
 		var nutricost = $(this).parent().children().children(".price").parent().prev().prev().text()
-		nutricost = nutricost * nutri
 		price = price * quantity
 		var cost = 0
 		$(this).parent().children().children(".cost").each(function (){ // Check if has excluded
@@ -132,6 +131,7 @@ async function updateProfit(){
 			has_exclusions = (has_exclusions || exluded == "true")
 		})
 		if (force_single_craft) {has_exclusions = force_single_craft}
+		nutricost = nutricost * nutri * (1 * has_exclusions + (1 / (1-rrr)) * !has_exclusions) // Since we assume 1/(1-rrr) more crafts in some cases, we need 1/(1-rrr) more nutricost
 		$(this).parent().children().children(".cost").each(function (){
 			quantity = $(this).parent().prev().text()
 			exluded = $(this).parent().next().text()
