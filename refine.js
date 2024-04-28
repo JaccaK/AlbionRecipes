@@ -13,6 +13,7 @@ var materials = "T5_FIBER_LEVEL1@1,T7_PLANKS_LEVEL3@3,T5_ORE_LEVEL4@4,T4_METALBA
             new Recipe("T5_PLANKS_LEVEL2@2", new Map([["T5_WOOD_LEVEL2@2", 3], ["T4_PLANKS_LEVEL2@2", 1]]),[],convertNut(128.0),1),
             new Recipe("T5_PLANKS_LEVEL3@3", new Map([["T5_WOOD_LEVEL3@3", 3], ["T4_PLANKS_LEVEL3@3", 1]]),[],convertNut(256.0),1),
             new Recipe("T5_PLANKS_LEVEL4@4", new Map([["T5_WOOD_LEVEL4@4", 3], ["T4_PLANKS_LEVEL4@4", 1]]),[],convertNut(512.0),1),
+            new Recipe("T6_PLANKS", new Map([["T6_WOOD", 4], ["T5_PLANKS", 1]]),[],convertNut(64.0),1),
             new Recipe("T6_PLANKS_LEVEL1@1", new Map([["T6_WOOD_LEVEL1@1", 4], ["T5_PLANKS_LEVEL1@1", 1]]),[],convertNut(128.0),1),
             new Recipe("T6_PLANKS_LEVEL2@2", new Map([["T6_WOOD_LEVEL2@2", 4], ["T5_PLANKS_LEVEL2@2", 1]]),[],convertNut(256.0),1),
             new Recipe("T6_PLANKS_LEVEL3@3", new Map([["T6_WOOD_LEVEL3@3", 4], ["T5_PLANKS_LEVEL3@3", 1]]),[],convertNut(512.0),1),

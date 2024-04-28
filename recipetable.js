@@ -113,29 +113,36 @@ function showOnlyEnchant(enchantlevel) {
 }
 
 async function updateProfit(){
-	var city = $("#locations").val()
 	var rrr = $("#rrr").val()
 	var nutri = $("#nutri").val()
 	var tax = FREE_TAX //6% tax + 1.5% setup fee
+	var force_single_craft = $("#single") && $("#single").is(":checked") //Check if force singlecraft checkbox exists and is checked.
 	if($("#prem").is(":checked"))
 		tax = PREM_TAX //3% tax + 1.5% setup fee
 	$(".profit").each(function () {
+		var has_exclusions = false
 		var price = $(this).parent().children().children(".price").val()
 		var quantity = $(this).parent().children().children(".price").parent().prev().text()
 		var nutricost = $(this).parent().children().children(".price").parent().prev().prev().text()
 		nutricost = nutricost * nutri
 		price = price * quantity
 		var cost = 0
+		$(this).parent().children().children(".cost").each(function (){ // Check if has excluded
+			exluded = $(this).parent().next().text()
+			has_exclusions = (has_exclusions || exluded == "true")
+		})
+		has_exclusions =  force_single_craft
 		$(this).parent().children().children(".cost").each(function (){
 			quantity = $(this).parent().prev().text()
 			exluded = $(this).parent().next().text()
 			if(exluded == "false"){
-				cost = cost + $(this).val() * quantity * (1 - rrr)
+				cost = cost + $(this).val() * quantity * (((1 - rrr) * has_exclusions) + !has_exclusions) //has_exclusion will resolve to 1 if there are exclusions
 			} else {
 				cost = cost + $(this).val() * quantity
 			}
 		})
-		var profit = price * (1 - tax) - cost - nutricost
+		var choose_rev = ((price / (1-rrr)) * !has_exclusions) + (price * has_exclusions) // choose between profit with no exclusions and profit with exclusions
+		var profit = choose_rev * (1 - tax) - cost - nutricost
 		$(this).parent().children(".profit").text(Math.trunc(profit))
 	})
 	changeProfitColor()
