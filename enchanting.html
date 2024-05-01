@@ -1,0 +1,90 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Laborers</title>
+  <meta name="description" content="An Enchanting Calculator for the game Albion Online. Automatically calculates profit using prices from The Albion Online Data Project and user input.">
+  <meta name="author" content="Jacca">
+
+  <meta property="og:title" content="Albion Online Enchanting Calculator">
+  <meta property="og:type" content="website">
+  <meta property="og:description" content="An Enchanting calculator for the game Albion Online. Automatically calculates profit using prices from The Albion Online Data Project and user input.">
+
+  <link rel="icon" href="favicon.ico">
+
+  <link rel="stylesheet" href="table.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="recipetable.js"></script>
+  <script src="names.js"></script>
+  <script src="adt.js"></script>
+  <script src="enchant.js"></script>
+  <style>
+    td > label {
+    display:block;
+    }
+  </style>
+</head>
+<body>
+  <style type="text/css">.enchant{display: none;}</style>
+  <div id="navbararea"></div><br>
+  <h2>Enchanting</h2>
+  <label for="tier">Tier</label>
+  <select name="tier" id="tier">
+    <option value="0">T4</option>
+    <option value="1">T5</option>
+    <option value="2">T6</option>
+    <option value="3">T7</option>
+    <option value="4">T8</option>
+  </select>
+  <select name="enchant" id="enchant">
+    <option value="0">.0 -> .1</option>
+    <option value="1">.1 -> .2</option>
+    <option value="2">.2 -> .3</option>
+  </select>
+  <select id="category">
+    <option value="0">Armor</option>
+    <option value="1">Melee</option>
+    <option value="2">Magic</option>
+    <option value="3">Ranged</option>
+    <option value="4">Offhand</option>
+    <option value="5">Accessories</option>
+    <option value="6">Gathering</option>
+  </select>
+  <label for="server">Server</label>
+  <select name="server" id="server">
+    <option value="west">America</option>
+    <option value="east">Asia</option>
+    <option value="europe">EU</option>
+  </select>
+  <br>
+  <label for="locations">City</label>
+  <select name="locations" id="locations">
+    <option value="Thetford">Thetford</option>
+    <option value="Martlock">Martlock</option>
+    <option value="Fort Sterling">Fort Sterling</option>
+    <option value="Bridgewatch">Bridgewatch</option>
+    <option value="Lymhurst">Lymhurst</option>
+    <option value="Caerleon">Caerleon</option>
+    <option value="5003">Brecilien</option>
+  </select>
+  <label for="tax">Tax</label>
+  <select name="tax" id="tax">
+    <option value="0">None</option>
+    <option value="1">Premium</option>
+    <option value="2">Free to Play</option>
+  </select>
+  <label for="quality">Quality</label>
+  <select name="quality" id="quality">
+    <option value="1">Normal</option>
+    <option value="2">Good</option>
+    <option value="3">Outstanding</option>
+    <option value="4">Excellent</option>
+    <option value="5">Masterpiece</option>
+  </select>
+  <button id="updateButton" onclick="updateTable()">Update</button>
+  <div id="tablearea" style="overflow:auto;"></div>
+</body>
+</html>
