@@ -42,16 +42,22 @@ function createTableFromRecipesDifferentEnd(recipes,itemmap){
 	$("#tablearea").empty().append("<table>")
 	$("#tablearea > table").append("<tr><th class=\"enchant\">En</th><th>Product</th><th class=\"nut\">Nutri</th><th>#</th><th style=\"width:5%\">Price</th><th>Profit</th><th>Material</th><th>#</th><th class=\"cost\" style=\"width:3%\">Cost</tr>")
 	var string = ""
-	for (let i = 0; i < recipes.length; i++) {
-			string = string + "<tr><td class=\"enchant\">"+getEnchantFromName(recipes[i].result)
-			+"</td><td>"+ITEM_NAMES.get(recipes[i].result)+"</td><td class=\"nut\">"
-			+recipes[i].nutrition+"</td><td>"
-			+ recipes[i].quantity+"</td><td><input type=\"number\" class=\"price\" style=\"width:80%\" min=0 value="
-			+itemmap.getPrice(recipes[i].result,quality,endCity)+"></td><td class=\"profit\">"
-			+Math.trunc(recipes[i].calcProfit(itemmap,quality,city,rrr,nutri,tax))+"</td>"
-			for (var key of recipes[i].ingredients.keys()){
-				string = string + "<td>"+ITEM_NAMES.get(key)+"</td><td>"+recipes[i].ingredients.get(key)+"</td><td><input type=\"number\" class=\"cost\" min=0 size=\"8\" value="+itemmap.getPrice(key,1,city)+">"
-				+"<td class=\"exclude\">"+recipes[i].isExcluded(key)+"</td>"
+	
+	var new_recipes = recipes
+	var enchant = $("#enchant") && $("#enchant").is(":checked")
+	if (enchant) 
+		new_recipes = new_recipes.map(x => convertUpgrade(x))
+
+	for (let i = 0; i < new_recipes.length; i++) {
+			string = string + "<tr><td class=\"enchant\">"+parseInt(getEnchantFromName(new_recipes[i].result))
+			+"</td><td>"+ITEM_NAMES.get(new_recipes[i].result)+"</td><td class=\"nut\">"
+			+new_recipes[i].nutrition+"</td><td>"
+			+ new_recipes[i].quantity+"</td><td><input type=\"number\" class=\"price\" style=\"width:80%\" min=0 value="
+			+itemmap.getPrice(new_recipes[i].result,quality,endCity)+"></td><td class=\"profit\">"
+			+Math.trunc(new_recipes[i].calcProfit(itemmap,quality,city,rrr,nutri,tax))+"</td>"
+			for (var key of new_recipes[i].ingredients.keys()){
+				string = string + "<td>"+ITEM_NAMES.get(key)+"</td><td>"+new_recipes[i].ingredients.get(key)+"</td><td><input type=\"number\" class=\"cost\" min=0 size=\"8\" value="+itemmap.getPrice(key,1,city)+">"
+				+"<td class=\"exclude\">"+new_recipes[i].isExcluded(key)+"</td>"
 			}
 			string = string + "</tr>"
 	}
@@ -170,3 +176,75 @@ function appendItems(itemarray) { //Limit total item list to around 8000 charact
     itemarray.forEach(item => string = string+item+",")
     return string
 }
+
+function convertUpgrade(recipe){
+	var rune_amount = selectRuneAmount(recipe.result)
+	var rune_id = selectRune(recipe.result)
+	if (rune_amount == -1 || rune_id == "" || getEnchantFromName(recipe.result) == "0") // Base case, no keywords, -1 amount
+	return recipe
+	var new_ingredient_map = downgradeIngredients(recipe.ingredients, recipe.exlude) // The "exlude" typo had me pulling out my hair for 20 minutes.
+	var new_recipe = new Recipe(recipe.result, new_ingredient_map, recipe.exlude, recipe.nutrition, recipe.quantity)
+	new_recipe.ingredients.set(rune_id, rune_amount)
+	new_recipe.exlude.push(rune_id)
+	return new_recipe
+}
+
+function downgradeIngredients(ingredient_map, exclusion_array){
+	var new_map = new Map()
+	Array.from(ingredient_map.keys()).forEach(x =>{
+		//Skip exclusions, map each ingredient to downgrade enchant, return new_map
+		var item_name = ""
+		if(exclusion_array !== undefined && exclusion_array.includes(x))
+		{
+			item_name = x
+		} else {
+			item_name = downgradeEnchant(x)
+		}
+		new_map.set(item_name, ingredient_map.get(x))
+	})
+	return new_map
+}
+
+function downgradeEnchant(item_name){
+	//Split on @, downgrade item[1] by 1. If 0, remove _LEVEL1 if exists and skip appending "@0"
+	var item = item_name.split("@")
+	if (item.length < 2)
+	return item_name
+	var enchant = parseInt(item[1]) - 1
+	if (enchant == 3)
+	return item_name
+	if (enchant == 0)
+	return item[0].replace("_LEVEL1","")
+	if (enchant == 1)
+	return item[0].replace("_LEVEL2","_LEVEL1") + "@" + enchant
+	if (enchant == 2)
+	return item[0].replace("_LEVEL3","_LEVEL2") + "@" + enchant
+}
+
+function selectRune(item_name) {
+	const runes = ["T%_RUNE","T%_SOUL","T%_RELIC"]
+	var tier = item_name.charAt(1)
+	var item = item_name.split("@")
+	if ( parseInt(tier)  < 4)
+	return ""
+	if (item.length < 2)
+	return runes[0].replace("%",tier)
+	if (item[1] == "3" || item[1] == "4")
+	return ""
+	return runes[parseInt(item[1])].replace("%",tier)
+}
+
+function selectRuneAmount(item_name){ // Yoinked and modified from enchant.js
+    const rune_cost = [96,192,288,384]
+    //0 = HELM,SHOES,CAPE,OFFHAND, 1 = ARMOR,BAG, 3 = MAIN, 4 = 2H
+    if (item_name.includes("2H")) //Could switch here maybe but like why bother
+        return rune_cost[3]
+    if (item_name.includes("MAIN"))
+        return rune_cost[2]
+    if (item_name.includes("ARMOR") || item_name.includes("BAG"))
+        return rune_cost[1]
+	if (item_name.includes("HELM") || item_name.includes("SHOES") || item_name.includes("CAPE") || item_name.includes("OFFHAND"))
+    	return rune_cost[0]
+	return -1
+}
+

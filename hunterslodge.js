@@ -1915,4 +1915,5 @@ new Recipe("T7_2H_DOUBLEBLADEDSTAFF_CRYSTAL@4", new Map([["T7_METALBAR_LEVEL4@4"
       $("#endLocations").change(function() { updateTableValues() })
       $("#language").change(function() { updateTableValues() })
       $("#server").change(function() { updateTable() })
+	  $("#enchant").change(function() { updateTableValues() })
     })

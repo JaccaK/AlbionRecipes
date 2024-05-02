@@ -1915,4 +1915,5 @@ var crystal = "T4_2H_SCYTHE_CRYSTAL,T4_2H_SCYTHE_CRYSTAL@1,T4_2H_SCYTHE_CRYSTAL@
       $("#endLocations").change(function() { updateTableValues() })
       $("#language").change(function() { updateTableValues() })
       $("#server").change(function() { updateTable() })
+	  $("#enchant").change(function() { updateTableValues() })
     })

@@ -1735,4 +1735,5 @@ var crystal = "T4_2H_FROSTSTAFF_CRYSTAL,T4_2H_FROSTSTAFF_CRYSTAL@1,T4_2H_FROSTST
       $("#endLocations").change(function() { updateTableValues() })
       $("#language").change(function() { updateTableValues() })
       $("#server").change(function() { updateTable() })
+	  $("#enchant").change(function() { updateTableValues() })
     })
