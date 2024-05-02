@@ -229,9 +229,9 @@ function selectRune(item_name) {
 	return ""
 	if (item.length < 2)
 	return runes[0].replace("%",tier)
-	if (item[1] == "3" || item[1] == "4")
+	if (item[1] == "4")
 	return ""
-	return runes[parseInt(item[1])].replace("%",tier)
+	return runes[parseInt(item[1]) - 1].replace("%",tier)
 }
 
 function selectRuneAmount(item_name){ // Yoinked and modified from enchant.js
