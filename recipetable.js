@@ -243,7 +243,7 @@ function selectRuneAmount(item_name){ // Yoinked and modified from enchant.js
         return rune_cost[2]
     if (item_name.includes("ARMOR") || item_name.includes("BAG"))
         return rune_cost[1]
-	if (item_name.includes("HEAD") || item_name.includes("SHOES") || item_name.includes("CAPE") || item_name.includes("OFFHAND"))
+	if (item_name.includes("HEAD") || item_name.includes("SHOES") || item_name.includes("CAPE") || item_name.includes("OFF"))
     	return rune_cost[0]
 	return -1
 }
