@@ -55,7 +55,7 @@ var materials = "T1_FISHCHOPS,T3_FARM_CHICKEN_GROWN,T4_FARM_GOAT_GROWN,T5_FARM_G
 
     //Because of the simplicity of the recipes, I figure it'd be easier to set up a factory.
     function createMeatRecipe(animalID, meatID) {
-    	return new Recipe(meatID, new Map([[animalID,1]]), [], convertNut(800), 20)
+    	return new Recipe(meatID, new Map([[animalID,1]]), [], convertNut(800), 18)
     } //The last 3 params for this new recipe are the same for all 6 recipes.
 
     function createFishRecipe(fishID, choppedFishAmount) {
